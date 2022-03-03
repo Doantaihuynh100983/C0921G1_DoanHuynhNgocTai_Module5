@@ -14,14 +14,14 @@
       <!-- Left links -->
       <ul class="navbar-nav mb-2 mb-lg-0">
         <li class="nav-item" style=" padding: 0 58px">
-          <a class="nav-link " aria-current="page">HOME</a>
+          <a class="nav-link " aria-current="page" [routerLink]="['/home']" routerLinkActive="router-link-active" >HOME</a>
         </li>
         <li class="nav-item" style=" padding: 0 58px">
-          <a class="nav-link">CUSTOMER</a>
+          <a class="nav-link" [routerLink]="['/customerList']" routerLinkActive="router-link-active">CUSTOMER</a>
         </li>
 
         <li class="nav-item" style=" padding: 0 58px">
-          <a class="nav-link ">SERVICE</a>
+          <a class="nav-link " [routerLink]="['/listEmployee']" routerLinkActive="router-link-active">EMPLOYEE</a>
         </li>
         <li class="nav-item" style=" padding: 0 58px">
           <a class="nav-link ">CONTACT</a>
