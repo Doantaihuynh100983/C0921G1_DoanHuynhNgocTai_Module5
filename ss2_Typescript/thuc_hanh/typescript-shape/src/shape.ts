@@ -8,9 +8,4 @@ export class Shape {
     }
 
 
-
-
-    toString(): string {
-        return `(x: ${this._x}, y: ${this._y})`;
-    }
 }

@@ -18,3 +18,4 @@ function f() {
     console.log(sum);
 }
 f();
+

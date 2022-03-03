@@ -1,0 +1,20 @@
+
+  <label>NumBer 1:</label>
+  <input #idNumber1><br><br>
+  <label >Math:</label>
+  <select  #idMath style="width: 200px">
+    <option value="summation">(Summation)+</option>
+    <option value="subtraction">(Subtraction)-</option>
+    <option value="multiplication">(Multiplication)*</option>
+    <option value="division">(division)/</option>
+  </select>
+  <br>
+  <br>
+  <br>
+  <label>NumBer 2:</label>
+  <input  #idNumber2><br><br>
+  <button (click)="math(idNumber1.value , idNumber2.value , idMath.value)">Submit</button>
+
+
+
+<p>{{result}}</p>
