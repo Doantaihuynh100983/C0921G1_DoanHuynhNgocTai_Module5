@@ -50,6 +50,12 @@ export class HomeServiceService {
       name: "Serena Resort",
       price: 200.000
     },
+    {
+      id: 8,
+      img: "https://kenhhomestay.com/wp-content/uploads/2021/02/khach-san-tinh-yeu-ha-noi-10.jpg",
+      name: "Serena Resort",
+      price: 200.000
+    },
   ]
 
 

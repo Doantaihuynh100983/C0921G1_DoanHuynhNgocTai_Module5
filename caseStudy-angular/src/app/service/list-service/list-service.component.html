@@ -51,12 +51,14 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <th>bbb</th>
-          <th>bbb</th>
-          <th>bbb</th>
-          <th>bbb</th>
-          <th>bbb</th>
+        <tr *ngFor="let sv of serviceList">
+          <th>{{sv.id}}</th>
+          <th>{{sv.name}}</th>
+          <th>{{sv.area}}</th>
+          <th>{{sv.cost}}</th>
+          <th>{{sv.serviceType}}</th>
+          <th>{{sv.rentType}}</th>
+
           <th>
             <button type="button" class="btn btn-primary btnViewService" data-bs-toggle="modal"
                     data-bs-target="#exampleModal">
