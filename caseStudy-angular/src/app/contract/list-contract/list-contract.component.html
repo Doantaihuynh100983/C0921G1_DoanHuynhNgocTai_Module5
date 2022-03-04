@@ -1,0 +1,62 @@
+<div id="content">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-12">
+        <div>
+          <br>
+          <div class="d-flex bd-highlight">
+            <div class="p-2 flex-grow-1 bd-highlight">
+              <a type="button" class="btn btn-outline-primary " [routerLink]="['/addContract']" routerLinkActive="router-link-active">THÊM MỚI HỢP ĐỒNG</a>
+            </div>
+          </div>
+
+        </div>
+        <p class="fs-2 fw-bolder text-center" style="color: #ff5050">DANH SÁCH HỢP ĐỒNG</p>
+        <table class="table">
+          <thead>
+          <tr style="color: #ff5050 ; font-size: 20px">
+            <th scope="col">#</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+            <th scope="col">Contract Deposit</th>
+            <th scope="col">Contract Total Money</th>
+            <th scope="col">Customer</th>
+            <th scope="col">Employee</th>
+            <th scope="col">Service</th>
+            <th scope="col">Status</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th>aaa</th>
+            <th>aaa</th>
+            <th>aaa</th>
+            <th>aaa</th>
+            <th>aaa</th>
+            <th>aaa</th>
+            <th>aaa</th>
+            <th>
+              <button type="button" class="btn btn-primary btnModalView">
+                <i class="fas fa-cloud"></i>
+              </button>
+
+              <a type="button" class="btn btn-primary" [routerLink]="['/updateContract']" routerLinkActive="router-link-active">
+                <i class="far fa-edit"></i>
+              </a>
+
+              <button type="button" class="btn btn-danger ">
+                <i class="fas fa-trash"></i>
+              </button>
+
+
+            </th>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -33,7 +33,7 @@
 
       </div>
       <p class="fs-2 fw-bolder text-center" style="color: #ff5050">DANH SÁCH KHÁCH HÀNG</p>
-      <table class="table">
+      <table class="table border-0">
         <thead>
         <tr style="color: #ff5050 ; font-size: 20px">
           <th scope="col">#</th>
@@ -47,8 +47,15 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <th>bcvv</th>
+        <tr *ngFor="let ctm of customerList">
+          <th>{{ctm.id}}</th>
+          <th>{{ctm.name}}</th>
+          <th *ngIf="ctm.gender == true">Nam</th>
+          <th *ngIf="ctm.gender == false">Nữ</th>
+          <th>{{ctm.email}}</th>
+          <th>{{ctm.phone}}</th>
+          <th>{{ctm.adress}}</th>
+          <th>{{ctm.type}}</th>
 
           <th>
             <button type="button" class="btn btn-primary">
@@ -71,6 +78,5 @@
     </div>
   </div>
 </div>
-
 
 

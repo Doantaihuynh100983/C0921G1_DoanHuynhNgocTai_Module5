@@ -1,0 +1,82 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-12">
+      <div>
+        <br>
+        <div class="d-flex bd-highlight">
+          <div class="p-2 flex-grow-1 bd-highlight">
+            <a type="button" class="btn btn-outline-primary" [routerLink]="['/addService']" routerLinkActive="router-link-active">THÊM MỚI DỊCH VỤ</a>
+          </div>
+          <form>
+
+            <div class="d-flex bd-highlight">
+              <div class="p-2 flex-fill bd-highlight">
+                <input type="text" id="serviceName" name="serviceName" placeholder="Tên Dịch Vụ"
+                       style="width:200px;height: 38px">
+              </div>
+              <div class="p-2 flex-fill bd-highlight">
+                <select id="rentType" style="width:100px;height: 38px" name="rentType">
+                  <option selected disabled>Loại Thuê</option>
+                  <option></option>
+                </select>
+              </div>
+              <div class="p-2 flex-fill bd-highlight">
+                <select id="serviceType" style="width:150px;height: 38px" name="serviceType">
+                  <option selected disabled>Loại Dịch Vụ</option>
+                  <option></option>
+                </select>
+              </div>
+
+
+              <div class="p-2 flex-fill bd-highlight">
+                <button type="submit" class="btn btn-outline-primary">TÌM KIẾM</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+      <p class="fs-2 fw-bolder text-center" style="color: #ff5050">DANH SÁCH DỊCH VỤ</p>
+      <table class="table">
+        <thead>
+        <tr style="color: #ff5050 ; font-size: 20px">
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Service Area</th>
+          <th scope="col">Cost</th>
+          <th scope="col">Service Type</th>
+          <th scope="col">Rent Type</th>
+          <th scope="col">Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th>bbb</th>
+          <th>bbb</th>
+          <th>bbb</th>
+          <th>bbb</th>
+          <th>bbb</th>
+          <th>
+            <button type="button" class="btn btn-primary btnViewService" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+              <i class="fas fa-cloud"></i>
+            </button>
+
+            <a type="button" class="btn btn-primary">
+              <i class="far fa-edit" [routerLink]="['/updateService']" routerLinkActive="router-link-active"></i>
+            </a>
+            <button type="button" class="btn btn-danger">
+              <i class="fas fa-trash"></i>
+            </button>
+
+
+          </th>
+        </tr>
+        </tbody>
+
+      </table>
+    </div>
+
+  </div>
+</div>

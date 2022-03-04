@@ -42,8 +42,13 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <th>bcvv</th>
+        <tr *ngFor="let emp of employeeList">
+          <th>{{emp.id}}</th>
+          <th>{{emp.name}}</th>
+          <th>{{emp.email}}</th>
+          <th>{{emp.idCard}}</th>
+          <th>{{emp.adress}}</th>
+          <th>{{emp.education}}</th>
 
           <th>
             <button type="button" class="btn btn-primary">

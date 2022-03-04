@@ -61,7 +61,9 @@ label {
 .content_01 {
   width: 100%;
 }
-
+.table {
+   background:  white;
+}
 
 #footer {
   background: #404040;
