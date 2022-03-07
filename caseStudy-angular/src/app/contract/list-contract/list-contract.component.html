@@ -19,23 +19,19 @@
             <th scope="col">#</th>
             <th scope="col">Start Date</th>
             <th scope="col">End Date</th>
-            <th scope="col">Contract Deposit</th>
-            <th scope="col">Contract Total Money</th>
             <th scope="col">Customer</th>
-            <th scope="col">Employee</th>
-            <th scope="col">Service</th>
+            <th scope="col">home</th>
             <th scope="col">Status</th>
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <th>aaa</th>
-            <th>aaa</th>
-            <th>aaa</th>
-            <th>aaa</th>
-            <th>aaa</th>
-            <th>aaa</th>
-            <th>aaa</th>
+          <tr *ngFor="let ct of contractList">
+            <th scope="col">{{ct.maHopDong}}</th>
+            <th scope="col">{{ct.ngayLamHopDong  | date:"MM/dd/yy"}}</th>
+            <th scope="col">{{ct.ngayKetThucHopDong  | date:"MM/dd/yy"}}</th>
+            <th scope="col">{{ct.Customer.name}}</th>
+            <th scope="col">{{ct.Home.name}}</th>
+
             <th>
               <button type="button" class="btn btn-primary btnModalView">
                 <i class="fas fa-cloud"></i>

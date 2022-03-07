@@ -39,11 +39,13 @@ import { UpdateServiceComponent } from './service/update-service/update-service.
     UpdateContractComponent,
     ListServiceComponent,
     AddServiceComponent,
-    UpdateServiceComponent
+    UpdateServiceComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRoutingModule
+
 
   ],
   providers: [],
