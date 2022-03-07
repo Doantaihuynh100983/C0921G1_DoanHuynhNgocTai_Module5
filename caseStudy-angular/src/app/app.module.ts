@@ -1,24 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
-import { BodyComponent } from './body/body.component';
-import { HomeComponent } from './home/home.component';
-import { AddCustomerComponent } from './customer/add-customer/add-customer.component';
-import { ListCustomerComponent } from './customer/list-customer/list-customer.component';
-import { UpdateCustomerComponent } from './customer/update-customer/update-customer.component';
-import { ListEmployeeComponent } from './employee/list-employee/list-employee.component';
-import { AddEmployeeComponent } from './employee/add-employee/add-employee.component';
-import { UpdateEmployeeComponent } from './employee/update-employee/update-employee.component';
-import { ListContractComponent } from './contract/list-contract/list-contract.component';
-import { AddContractComponent } from './contract/add-contract/add-contract.component';
-import { UpdateContractComponent } from './contract/update-contract/update-contract.component';
-import { ListServiceComponent } from './service/list-service/list-service.component';
-import { AddServiceComponent } from './service/add-service/add-service.component';
-import { UpdateServiceComponent } from './service/update-service/update-service.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {FooterComponent} from './footer/footer.component';
+import {HeaderComponent} from './header/header.component';
+import {BodyComponent} from './body/body.component';
+import {HomeComponent} from './home/home.component';
+import {CustomerModule} from './customer/customer.module';
+import {EmployeeModule} from './employee/employee.module';
+import {ContractModule} from './contract/contract.module';
+import {ServiceModule} from './service/service.module';
 
 
 @NgModule({
@@ -27,23 +19,14 @@ import { UpdateServiceComponent } from './service/update-service/update-service.
     FooterComponent,
     HeaderComponent,
     BodyComponent,
-    HomeComponent,
-    AddCustomerComponent,
-    ListCustomerComponent,
-    UpdateCustomerComponent,
-    ListEmployeeComponent,
-    AddEmployeeComponent,
-    UpdateEmployeeComponent,
-    ListContractComponent,
-    AddContractComponent,
-    UpdateContractComponent,
-    ListServiceComponent,
-    AddServiceComponent,
-    UpdateServiceComponent,
-
+    HomeComponent
   ],
   imports: [
     BrowserModule,
+    CustomerModule,
+    EmployeeModule,
+    ContractModule,
+    ServiceModule,
     AppRoutingModule
 
 
@@ -51,4 +34,5 @@ import { UpdateServiceComponent } from './service/update-service/update-service.
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
