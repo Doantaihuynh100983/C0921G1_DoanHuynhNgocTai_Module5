@@ -5,6 +5,7 @@ import {UpdateCustomerComponent} from './update-customer/update-customer.compone
 import {AddCustomerComponent} from './add-customer/add-customer.component';
 import {RouterModule, Routes} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ToastrModule} from 'ngx-toastr';
 
 const customerRoutes:Routes=[
   {
@@ -14,7 +15,7 @@ const customerRoutes:Routes=[
     path : "addCustomer" , component: AddCustomerComponent
   },
   {
-    path : "updateCustomer" , component: UpdateCustomerComponent
+    path : "updateCustomer/:id" , component: UpdateCustomerComponent
   },
 ];
 @NgModule({
@@ -28,7 +29,8 @@ const customerRoutes:Routes=[
     CommonModule,
     RouterModule.forChild(customerRoutes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
 
   ]
 })

@@ -1,5 +1,9 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastrModule} from 'ngx-toastr';
+
+
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -11,6 +15,8 @@ import {CustomerModule} from './customer/customer.module';
 import {EmployeeModule} from './employee/employee.module';
 import {ContractModule} from './contract/contract.module';
 import {ServiceModule} from './service/service.module';
+import {timeout} from 'rxjs/operators';
+
 
 
 @NgModule({
@@ -27,7 +33,10 @@ import {ServiceModule} from './service/service.module';
     EmployeeModule,
     ContractModule,
     ServiceModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+
+
 
 
   ],

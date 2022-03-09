@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "formDangNhap"
+    }
+  },
+  "defaultProject": "formDangNhap",
+  "cli": {
+    "analytics": "feecc52f-dda4-436e-b0ee-56f65c811232"
+  }
 }

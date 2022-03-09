@@ -102,4 +102,16 @@ export class CustomerService {
       this.customerList.push(customer);
   }
 
+
+  findById(id :number){
+      return this.customerList.find(customer => customer.id === id);
+  }
+
+  updateCustomer(id : number , customer : Customer){
+      for (let i = 0 ; i < this.customerList.length ; i++){
+            if (this.customerList[i].id === id){
+              this.customerList[i] = customer;
+            }
+      }
+  }
 }

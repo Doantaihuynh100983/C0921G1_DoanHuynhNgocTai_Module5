@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {CustomerService} from '../../services/customer.service';
 import {Route, Router, Routes} from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-customer',
@@ -22,7 +23,8 @@ export class AddCustomerComponent implements OnInit {
   });
 
   constructor(private  customerService: CustomerService,
-              private route: Router) {
+              private route: Router ,
+              private  toast : ToastrService) {
   }
 
   ngOnInit(): void {
@@ -31,6 +33,12 @@ export class AddCustomerComponent implements OnInit {
   submit() {
     const customer = this.customerForm.value;
     this.customerService.saveCustomer(customer);
+    this.toast.success( this.customerForm.value.name, "Đã Thêm Mới Thành Công" ,
+      {
+        timeOut : 1000 ,
+        progressBar : true
+      })
+
     this.route.navigateByUrl('/customer');
   }
 

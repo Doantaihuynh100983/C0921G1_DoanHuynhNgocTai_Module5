@@ -1,0 +1,28 @@
+
+<form [formGroup]="infoForm" >
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email">
+  </div>
+  <div *ngIf="infoForm.controls.email.invalid && (infoForm.controls.email.dirty || infoForm.controls.email.touched)">
+  <div *ngIf="infoForm.controls.email.errors">
+    <div  *ngIf="infoForm.controls.email.errors.required">
+      <p> Email Không Được Lỗi !!</p>
+    </div>
+    <div  *ngIf="infoForm.controls.email.errors.email">
+      <p> Sai Định Dạng Email !!</p>
+    </div>
+  </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+    <div *ngIf="infoForm.controls.password.invalid && (infoForm.controls.password.dirty || infoForm.controls.password.touched)">
+      <div  *ngIf="(infoForm.controls.password.errors.required) || (infoForm.controls.password.errors.minlength)">
+        <p> Lỗi Mật Khẩu !!</p>
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
