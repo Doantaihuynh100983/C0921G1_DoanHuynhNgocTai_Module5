@@ -9,7 +9,9 @@ export class CustomerService {
     private customerList: Customer[] =[
       {
         id : 1 ,
+        dayOfBirth : "2000-02-01",
         name: 'Đoàn Ngọc Tài',
+
         gender: true,
         email: "doantai@gmail.com",
         phone: 98343434,
@@ -18,7 +20,9 @@ export class CustomerService {
       },
       {
         id : 2 ,
+        dayOfBirth : "2000-02-01",
         name: 'Huỳnh Minh Ca',
+
         gender: true,
         email: "doantai@gmail.com",
         phone: 98343434,
@@ -27,6 +31,7 @@ export class CustomerService {
       },
       {
         id : 3 ,
+        dayOfBirth : "2000-02-01",
         name: 'Bùi Thị Huyền',
         gender: false,
         email: "doantai@gmail.com",
@@ -36,6 +41,7 @@ export class CustomerService {
       },
       {
         id : 4 ,
+        dayOfBirth : "2000-02-01",
         name: 'Nguyễn Minh Tài',
         gender: true,
         email: "doantai@gmail.com",
@@ -45,6 +51,7 @@ export class CustomerService {
       },
       {
         id : 5,
+        dayOfBirth : "2000-02-01",
         name: 'Nguyễn Thành Nhân',
         gender: true,
         email: "doantai@gmail.com",
@@ -54,6 +61,7 @@ export class CustomerService {
       },
       {
         id : 6 ,
+        dayOfBirth : "2000-02-01",
         name: 'Vũ Trọng Dương',
         gender: true,
         email: "doantai@gmail.com",
@@ -63,6 +71,7 @@ export class CustomerService {
       },
       {
         id : 7 ,
+        dayOfBirth : "2000-02-01",
         name: 'Đạt Trần Công',
         gender: false,
         email: "doantai@gmail.com",
@@ -72,6 +81,7 @@ export class CustomerService {
       },
       {
         id : 8 ,
+        dayOfBirth : "2000-02-01",
         name: 'Nguyễn Cu Từ',
         gender: false,
         email: "doantai@gmail.com",
@@ -87,4 +97,9 @@ export class CustomerService {
   getAllCustomer(){
       return this.customerList;
   }
+
+  saveCustomer(customer){
+      this.customerList.push(customer);
+  }
+
 }

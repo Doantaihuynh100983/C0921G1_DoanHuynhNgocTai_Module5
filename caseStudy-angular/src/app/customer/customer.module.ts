@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CustomerComponent } from './customer.component';
 import {ListCustomerComponent} from './list-customer/list-customer.component';
 import {UpdateCustomerComponent} from './update-customer/update-customer.component';
 import {AddCustomerComponent} from './add-customer/add-customer.component';
 import {RouterModule, Routes} from '@angular/router';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 const customerRoutes:Routes=[
   {
@@ -19,7 +19,6 @@ const customerRoutes:Routes=[
 ];
 @NgModule({
   declarations: [
-    CustomerComponent,
     ListCustomerComponent,
     UpdateCustomerComponent,
     AddCustomerComponent
@@ -27,7 +26,9 @@ const customerRoutes:Routes=[
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(customerRoutes)
+    RouterModule.forChild(customerRoutes),
+    FormsModule,
+    ReactiveFormsModule
 
   ]
 })

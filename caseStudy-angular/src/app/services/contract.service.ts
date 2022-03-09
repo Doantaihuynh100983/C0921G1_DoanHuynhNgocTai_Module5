@@ -47,8 +47,8 @@ export class ContractService {
     },
     {
       maHopDong : 'P0004',
-      Customer   :  this.customerList[4],
-      Home : this.homeList[4],
+      Customer   :  this.customerList[5],
+      Home : this.homeList[5],
       ngayLamHopDong: '2022-21-2',
       ngayKetThucHopDong: '2022-21-3',
       tienDatCoc:  12

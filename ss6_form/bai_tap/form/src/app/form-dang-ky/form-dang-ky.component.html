@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="row-cols-6">
+    <form [formGroup]="infoForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               formControlName="email">
+        <div *ngIf="infoForm.controls.email.invalid && (infoForm.controls.email.dirty || infoForm.controls.email.touched)">
+          <div *ngIf="infoForm.controls.email.errors">
+            <div *ngIf="infoForm.controls.email.errors.required">
+              <p class="errors">Email Không Được Trống !!</p>
+            </div>
+            <div *ngIf="infoForm.controls.email.errors.email">
+              <p class="errors">Không Đúng Định Dạng Email !!</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div formGroupName="pwGroup">
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" >
+          <div *ngIf="infoForm.get('pwGroup').get('password').invalid && (infoForm.get('pwGroup').get('password').dirty || infoForm.get('pwGroup').get('password').touched)">
+          <div *ngIf="infoForm.get('pwGroup').get('password').errors">
+            <div *ngIf="infoForm.get('pwGroup').get('password').errors.minlength">
+              <p class="errors">Mật Khẩu Phải Lớn Hơn 6 Ký Tự !!</p>
+            </div>
+            <div *ngIf="infoForm.get('pwGroup').get('password').errors.required">
+              <p class="errors">Mật Khẩu Không Được Trống !!</p>
+            </div>
+          </div>
+          </div>
+
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputConFirmPassword" class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" id="exampleInputConFirmPassword" formControlName="confirmPassword">
+          <div *ngIf="infoForm.hasError('passWordNotMatch',['pwGroup']) && infoForm.get('pwGroup').get('confirmPassword').touched">
+            <p class="errors">Mật Khẩu Phải Trùng Nhau !!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Country</label>
+        <select class="form-select" aria-label="Default select example" formControlName="country">
+          <option value="1">Hải Phòng</option>
+          <option value="2">Hà Nội</option>
+          <option value="3">Lào Cai</option>
+        </select>
+        <div *ngIf="infoForm.controls.country.invalid && (infoForm.controls.country.dirty || infoForm.controls.country.touched)">
+        <div *ngIf="infoForm.controls.country.errors">
+            <div  *ngIf="infoForm.controls.country.errors.required">
+                  <p class="errors">Bắt Buộc Chọn !!</p>
+            </div>
+
+        </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputAge" class="form-label">Age</label>
+        <input type="date" class="form-control" id="exampleInputAge" formControlName="age">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputAge" class="form-label">Gender</label>
+        <br>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" formControlName="gender">
+          <label class="form-check-label" for="inlineCheckbox1">Nam</label>
+
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" formControlName="gender">
+          <label class="form-check-label" for="inlineCheckbox2">Nữ</label>
+
+        <div *ngIf="infoForm.controls.gender.invalid && (infoForm.controls.gender.dirty || infoForm.controls.gender.touched)">
+          <div *ngIf="infoForm.controls.gender.errors">
+            <div  *ngIf="infoForm.controls.gender.errors.required">
+              <p class="errors">Bắt Buộc Chọn !!</p>
+            </div>
+
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPhone" class="form-label">Phone</label>
+        <input type="text" class="form-control" id="exampleInputPhone" formControlName="phone">
+        <div *ngIf="infoForm.controls.phone.invalid && (infoForm.controls.phone.dirty || infoForm.controls.phone.touched)">
+          <div *ngIf="infoForm.controls.phone.errors">
+            <div *ngIf="infoForm.controls.phone.errors.required">
+              <p class="errors">Phone Không Được Trống !!</p>
+            </div>
+            <div *ngIf="infoForm.controls.phone.errors.pattern">
+              <p class="errors">Không Đúng Định Dạng Phone !!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+</div>
+
+
