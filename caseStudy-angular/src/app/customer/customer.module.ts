@@ -6,6 +6,10 @@ import {AddCustomerComponent} from './add-customer/add-customer.component';
 import {RouterModule, Routes} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ToastrModule} from 'ngx-toastr';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DeleteCustomerComponent } from './delete-customer/delete-customer.component';
+
+
 
 const customerRoutes:Routes=[
   {
@@ -17,12 +21,16 @@ const customerRoutes:Routes=[
   {
     path : "updateCustomer/:id" , component: UpdateCustomerComponent
   },
+  {
+    path : "deleteCustomer/:id" , component: DeleteCustomerComponent
+  },
 ];
 @NgModule({
   declarations: [
     ListCustomerComponent,
     UpdateCustomerComponent,
-    AddCustomerComponent
+    AddCustomerComponent,
+    DeleteCustomerComponent
 
   ],
   imports: [
@@ -30,7 +38,8 @@ const customerRoutes:Routes=[
     RouterModule.forChild(customerRoutes),
     FormsModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatDialogModule,
 
   ]
 })

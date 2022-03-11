@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomerService} from '../../services/customer.service';
 import {Route, Router, Routes} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
@@ -11,14 +11,14 @@ import {ToastrService} from 'ngx-toastr';
 })
 export class AddCustomerComponent implements OnInit {
   customerForm: FormGroup = new FormGroup({
-    id: new FormControl(),
-    dayOfBirth: new FormControl(),
-    name: new FormControl(),
-    gender: new FormControl(),
-    phone: new FormControl(),
-    email: new FormControl(),
-    adress: new FormControl(),
-    type: new FormControl()
+    id: new FormControl('',Validators.required),
+    dayOfBirth: new FormControl('',[Validators.required]),
+    name: new FormControl('',[Validators.required,Validators.pattern(/^[a-z A-Z]{1,50}$/)]),
+    gender: new FormControl('',[Validators.required]),
+    phone: new FormControl('',[Validators.required , Validators.pattern( /^(84+|0)(90|91)[0-9]{7}$/)]),
+    email: new FormControl("",[Validators.required,Validators.email]),
+    adress: new FormControl("",Validators.required),
+    type: new FormControl("",Validators.required)
 
   });
 

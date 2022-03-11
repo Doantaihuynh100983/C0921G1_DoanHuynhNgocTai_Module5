@@ -12,99 +12,211 @@
               <div class="card mt-2 mx-auto p-4 bg-light">
                 <div class="card-body bg-light">
                   <div class="container">
-                    <form id="contact-form" role="form">
+                    <form id="contact-form" role="form" [formGroup]="employeeForm" (ngSubmit)="addEmployee()">
                       <div class="controls">
                         <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="employeeId">Id *</label>
+                              <input id="employeeId" type="text"
+                                     class="form-control"
+                                     placeholder="Please enter your Id *"
+                                     required="required" formControlName="id">
+                              <div *ngIf="employeeForm.controls.id.invalid && (employeeForm.controls.id.dirty || employeeForm.controls.id.touched)">
+                                <div *ngIf="employeeForm.controls.id.errors">
+                                  <div *ngIf="employeeForm.controls.id.errors.required">
+                                    <p style="color: red">Không Được Để Trống !!!</p>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+
+
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="employeeName">Name *</label>
                               <input id="employeeName" type="text"
                                      class="form-control"
                                      placeholder="Please enter your Name *"
-                                     required="required">
+                                     required="required" formControlName="name">
+                              <div *ngIf="employeeForm.controls.name.invalid && (employeeForm.controls.name.dirty || employeeForm.controls.name.touched)">
+                                <div *ngIf="employeeForm.controls.name.errors">
+                                  <div *ngIf="employeeForm.controls.name.errors.required">
+                                    <p style="color: red">Không Được Để Trống !!!</p>
+                                  </div>
+                                  <div *ngIf="employeeForm.controls.name.errors.pattern">
+                                    <p style="color: red">Không Đúng Định Dạng !!!</p>
+                                  </div>
+                                </div>
+
+                              </div>
                             </div>
                           </div>
+
+                        </div>
+
+
+                        <div class="row">
                           <div class="col-md-6">
                             <div class="form-group"><label for="employeeBirthday">Birthday
-                              *</label> <input id="employeeBirthday" type="date" class="form-control" required="required">
+                              *</label> <input  formControlName="birthday" id="employeeBirthday" type="date" class="form-control" required="required">
+                            </div>
+                            <div *ngIf="employeeForm.controls.birthday.invalid && (employeeForm.controls.birthday.dirty || employeeForm.controls.birthday.touched)">
+                              <div *ngIf="employeeForm.controls.birthday.errors">
+                                <div *ngIf="employeeForm.controls.birthday.errors.required">
+                                  <p style="color: red">Bắt Buộc Chọn !!!</p>
+                                </div>
+                              </div>
+
                             </div>
                           </div>
-                        </div>
-                        <div class="row">
+
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="employeeIdCard">ID CARD *</label>
                               <input id="employeeIdCard" type="text" class="form-control"
                                      placeholder="Please enter your Id Card *"
-                                     required="required">
+                                     required="required" formControlName="idCard">
                             </div>
                           </div>
+
+                        </div>
+                        <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="employeeSalary">SALARY *</label>
                               <input id="employeeSalary" type="text"
                                      class="form-control"
                                      placeholder="Please enter your Salary *"
-                                     required="required">
+                                     required="required" formControlName="salary">
                             </div>
                           </div>
-                        </div>
-                        <div class="row">
+
                           <div class="col-md-6">
                             <div class="form-group"><label for="employeePhone">PHONE
                               *</label> <input id="employeePhone" type="text"
                                                class="form-control"
                                                placeholder="Please enter your Phone *"
-                                               required="required">
+                                               required="required" formControlName="phone">
+                            </div>
+                            <div *ngIf="employeeForm.controls.phone.invalid && (employeeForm.controls.phone.dirty || employeeForm.controls.phone.touched)">
+                              <div *ngIf="employeeForm.controls.phone.errors">
+                                <div *ngIf="employeeForm.controls.phone.errors.required">
+                                  <p style="color: red">Không Được Để Trống !!!</p>
+                                </div>
+                                <div *ngIf="employeeForm.controls.phone.errors.pattern">
+                                  <p style="color: red">Không Đúng Định Dạng !!!</p>
+                                </div>
+                              </div>
+
                             </div>
                           </div>
+
+                        </div>
+                        <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="employeeEmail">Email *</label>
                               <input id="employeeEmail" type="email"
                                      class="form-control"
                                      placeholder="Please enter your Email *"
-                                     required="required">
+                                     required="required" formControlName="email">
+                              <div *ngIf="employeeForm.controls.email.invalid && (employeeForm.controls.email.dirty || employeeForm.controls.email.touched)">
+                                <div *ngIf="employeeForm.controls.email.errors">
+                                  <div *ngIf="employeeForm.controls.email.errors.required">
+                                    <p style="color: red">Không Được Để Trống !!!</p>
+                                  </div>
+                                  <div *ngIf="employeeForm.controls.email.errors.email">
+                                    <p style="color: red">Không Đúng Định Dạng !!!</p>
+                                  </div>
+                                </div>
+
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div class="row">
                           <div class="col-md-6">
                             <div class="form-group"><label for="employeeAdress">ADRESS
                               *</label> <input id="employeeAdress" type="text"
                                                class="form-control"
                                                placeholder="Please enter your Adress *"
-                                               required="required">
+                                               required="required" formControlName="adress">
                             </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group"><label for="position">POSITION *</label>
-                              <select id="position"
-                                      class="form-control"
-                                      required="required">
-                                <option>Chọn Đi !!</option>
-                              </select>
+                            <div *ngIf="employeeForm.controls.adress.invalid && (employeeForm.controls.adress.dirty || employeeForm.controls.adress.touched)">
+                              <div *ngIf="employeeForm.controls.adress.errors">
+                                <div *ngIf="employeeForm.controls.adress.errors.required">
+                                  <p style="color: red">Không Được Để Trống !!!</p>
+                                </div>
+                              </div>
+
                             </div>
                           </div>
                         </div>
                         <div class="row">
-                          <div class="col-md-6">
+
+
+                          <div class="col-md-4">
                             <div class="form-group"><label for="educationDegree">EDUCATION
                               *</label>
                               <select id="educationDegree"
-                                      class="form-control" required="required">
-                                <option>Chọn Đi !!</option>
+                                      class="form-control" required="required" formControlName="education">
+                                <option value="Trung Cấp">Trung cấp</option>
+                                <option value="Cao Đẳng">Cao đẳng</option>
+                                <option value="Đại Học">Đại học</option>
+                                <option value="Sau Đại Học">Sau Đại Học</option>
                               </select>
+                              <div *ngIf="employeeForm.controls.education.invalid && (employeeForm.controls.education.dirty || employeeForm.controls.education.touched)">
+                                <div *ngIf="employeeForm.controls.education.errors">
+                                  <div *ngIf="employeeForm.controls.education.errors.required">
+                                    <p style="color: red">Bắt Buộc Chọn !!!</p>
+                                  </div>
+                                </div>
+
+                              </div>
                             </div>
                           </div>
-                          <div class="col-md-6">
+                          <div class="col-md-4">
+                            <div class="form-group"><label for="position">POSITION *</label>
+                              <select id="position"
+                                      class="form-control"
+                                      required="required" formControlName="position">
+                                <option value="Sale – Marketing">Sale – Marketing</option>
+                                <option value="Hành Chính">Hành Chính</option>
+                                <option value="Phục vụ">Phục vụ</option>
+                                <option value="Quản lý">Quản lý</option>
+                              </select>
+                              <div *ngIf="employeeForm.controls.position.invalid && (employeeForm.controls.position.dirty || employeeForm.controls.position.touched)">
+                                <div *ngIf="employeeForm.controls.position.errors">
+                                  <div *ngIf="employeeForm.controls.position.errors.required">
+                                    <p style="color: red">Bắt Buộc Chọn !!!</p>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
                             <div class="form-group"><label for="educationDegree">DIVISION
                               *</label>
                               <select id="division"
                                       class="form-control"
-                                      required="required">
-                                <option>Chọn Đi !!</option>
+                                      required="required" formControlName="division">
+                                <option value="Lễ tân">Lễ tân</option>
+                                <option value="Phục Vụ">Phục Vụ</option>
+                                <option  value="Chuyên Viên">Chuyên Viên</option>
+                                <option value="Giám Sát">Giám Sát</option>
+                                <option value="Quản Lý">Quản Lý</option>
+                                <option value="Giám Đốc">Giám Đốc</option>
                               </select>
+                              <div *ngIf="employeeForm.controls.division.invalid && (employeeForm.controls.division.dirty || employeeForm.controls.division.touched)">
+                                <div *ngIf="employeeForm.controls.division.errors">
+                                  <div *ngIf="employeeForm.controls.division.errors.required">
+                                    <p style="color: red">Bắt Buộc Chọn !!!</p>
+                                  </div>
+                                </div>
+
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -113,7 +225,7 @@
                       <div class="row">
                         <div class="col-md-12"><input type="submit"
                                                       class="btn btn-success btn-send pt-2 btn-block "
-                                                      value="Submit"></div>
+                                                      value="Submit" [disabled]="employeeForm.invalid"></div>
                       </div>
                     </form>
                   </div>

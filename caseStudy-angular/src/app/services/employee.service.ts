@@ -118,4 +118,9 @@ export class EmployeeService {
   getAllEmployee(){
     return this.employeeList;
   }
+
+
+  addEmployee(employee){
+      this.employeeList.push(employee);
+  }
 }

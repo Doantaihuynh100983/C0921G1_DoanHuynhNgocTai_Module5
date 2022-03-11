@@ -4,6 +4,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {ListEmployeeComponent} from './list-employee/list-employee.component';
 import {AddEmployeeComponent} from './add-employee/add-employee.component';
 import {UpdateEmployeeComponent} from './update-employee/update-employee.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {ToastrModule} from 'ngx-toastr';
 
 
 
@@ -28,7 +30,9 @@ const employeeRouter:Routes=[
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(employeeRouter)
+    RouterModule.forChild(employeeRouter),
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
   ]
 })
 export class EmployeeModule { }

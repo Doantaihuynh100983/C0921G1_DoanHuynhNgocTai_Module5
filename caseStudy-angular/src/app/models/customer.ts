@@ -6,6 +6,6 @@ export interface Customer {
   email? : string;
   phone? : number;
   adress? :string;
-  type? :string;
+  type? : string;
 }
 
