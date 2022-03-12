@@ -16,6 +16,7 @@ import {EmployeeModule} from './employee/employee.module';
 import {ContractModule} from './contract/contract.module';
 import {ServiceModule} from './service/service.module';
 import {timeout} from 'rxjs/operators';
+import {HttpClientModule} from '@angular/common/http';
 
 
 
@@ -35,9 +36,7 @@ import {timeout} from 'rxjs/operators';
     ServiceModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-
-
-
+    HttpClientModule
 
   ],
   providers: [],

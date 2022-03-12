@@ -12,21 +12,23 @@
               <div class="card mt-2 mx-auto p-4 bg-light">
                 <div class="card-body bg-light">
                   <div class="container">
-                    <form id="contact-form" role="form">
+                    <form id="contact-form" [formGroup]="employeeForm" (ngSubmit)="updateEmployee(id)">
                       <div class="controls">
                         <div class="row">
+                          <input type="hidden" formControlName="id">
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="employeeName">Name *</label>
                               <input id="employeeName" type="text"
                                      class="form-control"
                                      placeholder="Please enter your Name *"
-                                     required="required">
+                                     required="required" formControlName="name">
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group"><label for="employeeBirthday">Birthday
-                              *</label> <input id="employeeBirthday" type="date" class="form-control" required="required">
+                              *</label> <input formControlName="birthDay" id="employeeBirthday" type="date"
+                                               class="form-control" required="required">
                             </div>
                           </div>
                         </div>
@@ -36,7 +38,7 @@
                               <label for="employeeIdCard">ID CARD *</label>
                               <input id="employeeIdCard" type="text" class="form-control"
                                      placeholder="Please enter your Id Card *"
-                                     required="required">
+                                     required="required" formControlName="idCard">
                             </div>
                           </div>
                           <div class="col-md-6">
@@ -45,9 +47,11 @@
                               <input id="employeeSalary" type="text"
                                      class="form-control"
                                      placeholder="Please enter your Salary *"
-                                     required="required">
+                                     required="required" formControlName="salary">
                             </div>
                           </div>
+
+
                         </div>
                         <div class="row">
                           <div class="col-md-6">
@@ -55,7 +59,7 @@
                               *</label> <input id="employeePhone" type="text"
                                                class="form-control"
                                                placeholder="Please enter your Phone *"
-                                               required="required">
+                                               required="required" formControlName="phone">
                             </div>
                           </div>
                           <div class="col-md-6">
@@ -64,7 +68,7 @@
                               <input id="employeeEmail" type="email"
                                      class="form-control"
                                      placeholder="Please enter your Email *"
-                                     required="required">
+                                     required="required" formControlName="email">
                             </div>
                           </div>
                         </div>
@@ -74,15 +78,18 @@
                               *</label> <input id="employeeAdress" type="text"
                                                class="form-control"
                                                placeholder="Please enter your Adress *"
-                                               required="required">
+                                               required="required" formControlName="address">
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group"><label for="position">POSITION *</label>
                               <select id="position"
                                       class="form-control"
-                                      required="required">
-                                <option>Chọn Đi !!</option>
+                                      required="required" formControlName="position">
+                                <option *ngFor="let ps of positionList" [ngValue]="ps"
+                                        [selected]="ps.id == employeeForm.controls.position.value.id"
+                                >{{ps.name}}</option>
+
                               </select>
                             </div>
                           </div>
@@ -92,23 +99,32 @@
                             <div class="form-group"><label for="educationDegree">EDUCATION
                               *</label>
                               <select id="educationDegree"
-                                      class="form-control" required="required">
-                                <option>Chọn Đi !!</option>
+                                      class="form-control" required="required" formControlName="education">
+                                <option *ngFor="let ed of educationList" [ngValue]="ed"
+                                        [selected]="ed.id == employeeForm.controls.education.value.id"
+                                >{{ed.name}}</option>
                               </select>
+
+
                             </div>
                           </div>
                           <div class="col-md-6">
-                            <div class="form-group"><label for="educationDegree">DIVISION
+                            <div class="form-group"><label for="division">DIVISION
                               *</label>
                               <select id="division"
                                       class="form-control"
-                                      required="required">
-                                <option>Chọn Đi !!</option>
+                                      required="required" formControlName="division">
+                                <option *ngFor="let dv of divisionList" [ngValue]="dv"
+                                        [selected]="dv.id == employeeForm.controls.division.value.id"
+                                >{{dv.name}}</option>
                               </select>
+
                             </div>
                           </div>
                         </div>
                       </div>
+                      <input type="hidden" formControlName="flagDeleteCustomer">
+
                       <br>
                       <div class="row">
                         <div class="col-md-12"><input type="submit"

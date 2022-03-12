@@ -1,13 +1,20 @@
-export interface Employee {
+import {Education} from './Education';
+import {Division} from './Division';
+
+export class Employee {
   id?: number;
   name?: string;
-  birthday?: string;
+  birthDay?: string;
   idCard?: number;
   salary?: number;
   phone?: number;
   email?: string;
-  adress?: string;
-  education? : string;
-  position? : string;
-  division? :string;
+  address?: string;
+  division? :Division;
+  education? : Education;
+  position? : Position;
+
+
+  constructor() {
+  }
 }

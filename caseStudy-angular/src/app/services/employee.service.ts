@@ -1,126 +1,59 @@
 import { Injectable } from '@angular/core';
 import {Employee} from '../models/employee';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {position} from '../models/position';
+import {Education} from '../models/Education';
+import {Division} from '../models/Division';
 
+
+const API_URL = "http://localhost:8080/api/employee/";
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
-      employeeList : Employee[] = [
-        {
-          id : 1,
-         name: "Minh Chiến" ,
-          birthday: "2000-12-12",
-          idCard: 123456789,
-          salary : 12334,
-          phone : 89898988,
-          email: "MinhChien@gmail.com",
-          adress: "Quảng Lào",
-          education:"Trung cấp",
-          division: "Lễ tân",
-          position: "Sale – Marketing"
-        },
-        {
-          id : 2,
-          name: "Tú Trinh" ,
-          birthday: "2000-09-02",
-          idCard: 123456789,
-          salary : 12334,
-          phone : 89898988,
-          email: "TuTrinh@gmail.com",
-          adress: "Quảng Nam",
-          education:"Trung cấp",
-          division: "Lễ tân",
-          position: "Sale – Marketing"
-        },
-        {
-          id : 3,
-          name: "Tường Vi" ,
-          birthday: "1999-12-12",
-          idCard: 123456789,
-          salary : 12334,
-          phone : 89898988,
-          email: "TuongVi@gmail.com",
-          adress: "lào Cai",
-          education:"Trung cấp",
-          division: "Lễ tân",
-          position: "Sale – Marketing"
-        },
-        {
-          id : 4,
-          name: "Mạnh Hùng" ,
-          birthday: "1998-11-11",
-          idCard: 123456789,
-          salary : 12334,
-          phone : 89898988,
-          email: "MinhChien@gmail.com",
-          adress: "Huế",
-          education:"Trung cấp",
-          division: "Lễ tân",
-          position: "Sale – Marketing"
-        },
-        {
-          id : 5,
-          name: "Đức Mạnh" ,
-          birthday: "1777-5-7",
-          idCard: 123456789,
-          salary : 12334,
-          phone : 89898988,
-          email: "MinhChien@gmail.com",
-          adress: "Ấn Độ",
-          education:"Trung cấp",
-          division: "Lễ tân",
-          position: "Sale – Marketing"
-        },
-        {
-          id : 6,
-          name: "Văn Công" ,
-          birthday: "1996-09-89",
-          idCard: 123456789,
-          salary : 12334,
-          phone : 89898988,
-          email: "MinhChien@gmail.com",
-          adress: "Bắc Cạn",
-          education:"Trung cấp",
-          division: "Lễ tân",
-          position: "Sale – Marketing"
-        },
-        {
-          id : 7,
-          name: "Lì Cu Te" ,
-          birthday: "2000-5-7",
-          idCard: 123456789,
-          salary : 12334,
-          phone : 89898988,
-          email: "MinhChien@gmail.com",
-          adress: "Hà Nội",
-          education:"Trung cấp",
-          division: "Lễ tân",
-          position: "Sale – Marketing"
-        },
-        {
-          id : 8,
-          name: "Thái Bình" ,
-          birthday: "2000-12-07",
-          idCard: 123456789,
-          salary : 12334,
-          phone : 89898988,
-          email: "MinhChien@gmail.com",
-          adress: "Quảng Nam",
-          education:"Trung cấp",
-          division: "Lễ tân",
-          position: "Sale – Marketing"
-        },
 
-      ];
 
-  constructor() { }
 
-  getAllEmployee(){
-    return this.employeeList;
+
+  constructor(private http : HttpClient) { }
+
+  getAllEmployee() : Observable<Employee[]>{
+    return this.http.get<Employee[]>(API_URL + 'list');
   }
 
 
-  addEmployee(employee){
-      this.employeeList.push(employee);
+
+
+  getAllPosition(): Observable<position[]>{
+    return this.http.get<position[]>(API_URL + 'position');
   }
+
+
+  getAllEducation(): Observable<Education[]> {
+    return  this.http.get<Education[]>(API_URL + 'education')
+  }
+
+  getAllDivision(): Observable<Division[]> {
+    return  this.http.get<Division[]>(API_URL + 'division')
+  }
+
+
+  saveEmployee(employee: Employee) : Observable<Employee>{
+      return this.http.post<Employee>(API_URL + 'add', employee);
+  }
+
+  findById(id : number)  : Observable<Employee>{
+    return this.http.get<Employee>(API_URL + "detail/" + id);
+  }
+
+
+  updateEmployee( id: number, employee:Employee): Observable<Employee>{
+    return this.http.put<Employee>(API_URL + 'update/' +id , employee);
+  }
+
+deleteEmployee(id : number , employee : Employee): Observable<any>{
+    return this.http.put<any>(API_URL + 'delete?id='+id , employee)
+}
+
 }

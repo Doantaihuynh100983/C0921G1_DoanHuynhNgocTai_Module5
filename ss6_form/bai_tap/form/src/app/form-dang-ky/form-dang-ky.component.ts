@@ -40,6 +40,7 @@ export class FormDangKyComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
+
   infoForm = this.fb.group({
     "email": ['',[Validators.required,Validators.email]],
       "pwGroup" : this.fb.group({

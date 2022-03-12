@@ -34,11 +34,10 @@
           <th scope="col">#</th>
           <th scope="col">Name</th>
           <th scope="col">Email</th>
-          <th scope="col">Id Card</th>
-          <th scope="col">Adress</th>
+          <th scope="col">BirthDay</th>
+          <th scope="col">Address</th>
           <th scope="col">Education</th>
           <th scope="col">Position</th>
-          <th scope="col">Division</th>
           <th scope="col">Status</th>
         </tr>
         </thead>
@@ -47,22 +46,22 @@
           <th>{{emp.id}}</th>
           <th>{{emp.name}}</th>
           <th>{{emp.email}}</th>
-          <th>{{emp.idCard}}</th>
-          <th>{{emp.adress}}</th>
-          <th>{{emp.education}}</th>
-          <th>{{emp.position}}</th>
-          <th>{{emp.division}}</th>
+          <th>{{emp.birthDay}}</th>
+          <th>{{emp.address}}</th>
+          <th>{{emp.education.name}}</th>
+          <th>{{emp.position.name}}</th>
 
           <th>
-            <button type="button" class="btn btn-primary" style="margin-left: 20px">
+            <button type="button" class="btn btn-primary" style="margin-left: 20px" >
               <i class="fas fa-cloud"></i>
             </button>
 
-            <a type="button" class="btn btn-primary" [routerLink]="['/employee/updateEmployee']" routerLinkActive="router-link-active" style="margin-left: 20px">
+            <a type="button" class="btn btn-primary" [routerLink]="['/employee/updateEmployee/'+emp.id]" routerLinkActive="router-link-active" style="margin-left: 20px">
               <i class="far fa-edit"></i>
             </a>
 
-            <button type="button" class="btn btn-danger" style="margin-left: 20px">
+            <button type="button" class="btn btn-danger" style="margin-left: 20px" (click)="openDialog(emp.id)" >
+<!--              [routerLink]="['/employee/delete/'+emp.id]" routerLinkActive="router-link-active"-->
               <i class="fas fa-trash"></i>
             </button>
 

@@ -6,6 +6,10 @@ import {AddEmployeeComponent} from './add-employee/add-employee.component';
 import {UpdateEmployeeComponent} from './update-employee/update-employee.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ToastrModule} from 'ngx-toastr';
+import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
+import {HttpParams} from '@angular/common/http';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 
@@ -17,15 +21,23 @@ const employeeRouter:Routes=[
     path : 'addEmployee', component: AddEmployeeComponent
   },
   {
-    path : 'updateEmployee', component: UpdateEmployeeComponent
+    path : 'updateEmployee/:id', component: UpdateEmployeeComponent
   },
+  {
+    path : 'delete/:id', component: DeleteEmployeeComponent
+  },
+
 ]
+
+
+
 
 @NgModule({
   declarations: [
     ListEmployeeComponent,
     AddEmployeeComponent,
-    UpdateEmployeeComponent
+    UpdateEmployeeComponent,
+    DeleteEmployeeComponent
 
   ],
   imports: [
@@ -33,6 +45,7 @@ const employeeRouter:Routes=[
     RouterModule.forChild(employeeRouter),
     ReactiveFormsModule,
     ToastrModule.forRoot(),
+    MatDialogModule
   ]
 })
 export class EmployeeModule { }

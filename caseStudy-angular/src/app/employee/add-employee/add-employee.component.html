@@ -61,11 +61,11 @@
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group"><label for="employeeBirthday">Birthday
-                              *</label> <input  formControlName="birthday" id="employeeBirthday" type="date" class="form-control" required="required">
+                              *</label> <input  formControlName="birthDay" id="employeeBirthday" type="date" class="form-control" required="required">
                             </div>
-                            <div *ngIf="employeeForm.controls.birthday.invalid && (employeeForm.controls.birthday.dirty || employeeForm.controls.birthday.touched)">
-                              <div *ngIf="employeeForm.controls.birthday.errors">
-                                <div *ngIf="employeeForm.controls.birthday.errors.required">
+                            <div *ngIf="employeeForm.controls.birthDay.invalid && (employeeForm.controls.birthDay.dirty || employeeForm.controls.birthDay.touched)">
+                              <div *ngIf="employeeForm.controls.birthDay.errors">
+                                <div *ngIf="employeeForm.controls.birthDay.errors.required">
                                   <p style="color: red">Bắt Buộc Chọn !!!</p>
                                 </div>
                               </div>
@@ -137,15 +137,15 @@
                             </div>
                           </div>
                           <div class="col-md-6">
-                            <div class="form-group"><label for="employeeAdress">ADRESS
+                            <div class="form-group"><label for="employeeAdress">Address
                               *</label> <input id="employeeAdress" type="text"
                                                class="form-control"
                                                placeholder="Please enter your Adress *"
-                                               required="required" formControlName="adress">
+                                               required="required" formControlName="address">
                             </div>
-                            <div *ngIf="employeeForm.controls.adress.invalid && (employeeForm.controls.adress.dirty || employeeForm.controls.adress.touched)">
-                              <div *ngIf="employeeForm.controls.adress.errors">
-                                <div *ngIf="employeeForm.controls.adress.errors.required">
+                            <div *ngIf="employeeForm.controls.address.invalid && (employeeForm.controls.address.dirty || employeeForm.controls.address.touched)">
+                              <div *ngIf="employeeForm.controls.address.errors">
+                                <div *ngIf="employeeForm.controls.address.errors.required">
                                   <p style="color: red">Không Được Để Trống !!!</p>
                                 </div>
                               </div>
@@ -161,10 +161,10 @@
                               *</label>
                               <select id="educationDegree"
                                       class="form-control" required="required" formControlName="education">
-                                <option value="Trung Cấp">Trung cấp</option>
-                                <option value="Cao Đẳng">Cao đẳng</option>
-                                <option value="Đại Học">Đại học</option>
-                                <option value="Sau Đại Học">Sau Đại Học</option>
+                                <option value="" disabled [selected]="true">Chọn Tại Đây !!!</option>
+                                <option  *ngFor="let ed of educationList" [ngValue]="ed">{{ed.name}}</option>
+
+
                               </select>
                               <div *ngIf="employeeForm.controls.education.invalid && (employeeForm.controls.education.dirty || employeeForm.controls.education.touched)">
                                 <div *ngIf="employeeForm.controls.education.errors">
@@ -181,10 +181,8 @@
                               <select id="position"
                                       class="form-control"
                                       required="required" formControlName="position">
-                                <option value="Sale – Marketing">Sale – Marketing</option>
-                                <option value="Hành Chính">Hành Chính</option>
-                                <option value="Phục vụ">Phục vụ</option>
-                                <option value="Quản lý">Quản lý</option>
+                                <option value="" disabled [selected]="true">Chọn Tại Đây !!!</option>
+                                <option  *ngFor="let ps of positionList" [ngValue]="ps">{{ps.name}}</option>
                               </select>
                               <div *ngIf="employeeForm.controls.position.invalid && (employeeForm.controls.position.dirty || employeeForm.controls.position.touched)">
                                 <div *ngIf="employeeForm.controls.position.errors">
@@ -202,12 +200,9 @@
                               <select id="division"
                                       class="form-control"
                                       required="required" formControlName="division">
-                                <option value="Lễ tân">Lễ tân</option>
-                                <option value="Phục Vụ">Phục Vụ</option>
-                                <option  value="Chuyên Viên">Chuyên Viên</option>
-                                <option value="Giám Sát">Giám Sát</option>
-                                <option value="Quản Lý">Quản Lý</option>
-                                <option value="Giám Đốc">Giám Đốc</option>
+                                <option value="" disabled [selected]="true">Chọn Tại Đây !!!</option>
+                                <option  *ngFor="let dv of divisionList" [ngValue]="dv">{{dv.name}}</option>
+
                               </select>
                               <div *ngIf="employeeForm.controls.division.invalid && (employeeForm.controls.division.dirty || employeeForm.controls.division.touched)">
                                 <div *ngIf="employeeForm.controls.division.errors">
@@ -220,6 +215,7 @@
                             </div>
                           </div>
                         </div>
+                        <input type="hidden" formControlName="flagDeleteCustomer">
                       </div>
                       <br>
                       <div class="row">
