@@ -4,7 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {ListEmployeeComponent} from './list-employee/list-employee.component';
 import {AddEmployeeComponent} from './add-employee/add-employee.component';
 import {UpdateEmployeeComponent} from './update-employee/update-employee.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ToastrModule} from 'ngx-toastr';
 import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
 import {HttpParams} from '@angular/common/http';
@@ -45,7 +45,8 @@ const employeeRouter:Routes=[
     RouterModule.forChild(employeeRouter),
     ReactiveFormsModule,
     ToastrModule.forRoot(),
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
   ]
 })
 export class EmployeeModule { }

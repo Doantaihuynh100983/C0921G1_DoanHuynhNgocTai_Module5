@@ -9,21 +9,51 @@
             <a type="button" class="btn btn-primary "  [routerLink]="['/employee/addEmployee']" routerLinkActive="router-link-active">THÊM MỚI NHÂN VIÊN</a>
           </div>
           <div>
+
             <div class="d-flex bd-highlight">
               <div class="p-2 flex-fill bd-highlight">
-                <input type="text" id="customerName" name="customerName"
-                       placeholder="Tên Nhân Viên" style="width:200px;height: 38px">
+                <input type="text" id="customerName"
+                       placeholder="Tên Nhân Viên" style="width:200px;height: 38px" [(ngModel)]="name">
               </div>
               <div class="p-2 flex-fill bd-highlight">
-                <input type="text" id="customerAddress" name="customerAddress" placeholder="Địa chỉ"
-                       style="width:200px;height: 38px"><br><br>
+                <input type="text" id="customerAddress" placeholder="Địa chỉ"
+                       style="width:200px;height: 38px"  [(ngModel)]="address"><br><br>
+              </div>
+              <div class="p-2 flex-fill bd-highlight">
+                <select id="division"
+                        class="form-control"
+                        required="required"  [(ngModel)]="division">
+                  <option value="" disabled [selected]="true">Chọn Tại Đây !!!</option>
+                  <option  *ngFor="let dv of divisionList" [ngValue]="dv.id">{{dv.name}}</option>
+
+                </select>
               </div>
 
               <div class="p-2 flex-fill bd-highlight">
-                <button type="submit" class="btn btn-primary">TÌM KIẾM</button>
+                <select id="position"
+                        class="form-control"
+                        required="required"   [(ngModel)]="position">
+                  <option value="" disabled [selected]="true">Chọn Tại Đây !!!</option>
+                  <option  *ngFor="let ps of positionList" [ngValue]="ps.id">{{ps.name}}</option>
+                </select>
+              </div>
+
+              <div class="p-2 flex-fill bd-highlight">
+                <select id="educationDegree"
+                        class="form-control" required="required"  [(ngModel)]="education">
+                  <option value="" disabled [selected]="true">Chọn Tại Đây !!!</option>
+                  <option  *ngFor="let ed of educationList" [ngValue]="ed.id">{{ed.name}}</option>
+
+
+                </select>
+              </div>
+              <div class="p-2 flex-fill bd-highlight">
+                <button type="submit" class="btn btn-primary" (click)="getSearch()">TÌM KIẾM</button>
               </div>
             </div>
+
           </div>
+
         </div>
 
       </div>
@@ -61,7 +91,6 @@
             </a>
 
             <button type="button" class="btn btn-danger" style="margin-left: 20px" (click)="openDialog(emp.id)" >
-<!--              [routerLink]="['/employee/delete/'+emp.id]" routerLinkActive="router-link-active"-->
               <i class="fas fa-trash"></i>
             </button>
 

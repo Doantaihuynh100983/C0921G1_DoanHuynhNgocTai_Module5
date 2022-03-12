@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "quanlysanpham": {
+    "quanly-sanpham": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/quanlysanpham",
+            "outputPath": "dist/quanly-sanpham",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "quanlysanpham:build"
+            "browserTarget": "quanly-sanpham:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "quanlysanpham:build:production"
+              "browserTarget": "quanly-sanpham:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "quanlysanpham:build"
+            "browserTarget": "quanly-sanpham:build"
           }
         },
         "test": {
@@ -110,15 +110,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "quanlysanpham:serve"
+            "devServerTarget": "quanly-sanpham:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "quanlysanpham:serve:production"
+              "devServerTarget": "quanly-sanpham:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "quanlysanpham"
+  "defaultProject": "quanly-sanpham"
 }

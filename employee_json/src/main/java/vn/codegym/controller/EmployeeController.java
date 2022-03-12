@@ -30,15 +30,15 @@ public class EmployeeController {
     @Autowired
     private IDivisionService iDivisionService;
 
-    @GetMapping("/list")
-    public ResponseEntity<List<Employee>> getAllEmployee() {
-        List<Employee> employeeList = iEmployeeService.getAllEmployee();
-        if (!employeeList.isEmpty()) {
-            return new ResponseEntity<>(employeeList, HttpStatus.OK);
-
-        }
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
+//    @GetMapping("/list")
+//    public ResponseEntity<List<Employee>> getAllEmployee() {
+//        List<Employee> employeeList = iEmployeeService.getAllEmployee();
+//        if (!employeeList.isEmpty()) {
+//            return new ResponseEntity<>(employeeList, HttpStatus.OK);
+//
+//        }
+//        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//    }
 
 
     @GetMapping("/position")
@@ -107,6 +107,19 @@ public class EmployeeController {
     public ResponseEntity<?> delete(@RequestParam Integer id){
        iEmployeeService.deleteEmployee(id);
        return ResponseEntity.ok("");
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Employee>> searchEmployee( @RequestParam(defaultValue = "") String name,
+                                                          @RequestParam(defaultValue = "") String address,
+                                                          @RequestParam(defaultValue = "") String position,
+                                                          @RequestParam(defaultValue = "") String education,
+                                                          @RequestParam(defaultValue = "") String division){
+        List<Employee> employeeList = iEmployeeService.searchAllEmployee(name,address,position,education,division);
+        if (employeeList.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(employeeList,HttpStatus.OK);
     }
 
 }

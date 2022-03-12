@@ -56,4 +56,10 @@ deleteEmployee(id : number , employee : Employee): Observable<any>{
     return this.http.put<any>(API_URL + 'delete?id='+id , employee)
 }
 
+
+  searchEmployee(name: any ,address: any ,position: any ,education: any, division: any)  : Observable<Employee[]>{
+      return this.http.get<Employee[]>(API_URL + "search?name="+name + "&address=" + address +
+                 "&position=" + position +"&education=" + education + "&division=" + division )
+  }
+
 }
