@@ -71,7 +71,6 @@ export class AddEmployeeComponent implements OnInit {
     console.log(this.employee);
 
     this.employeeService.saveEmployee(this.employee).subscribe(()=>{
-      console.log(this.employee);
       Swal.fire(
         'Thêm Mới Thành Công!',
         this.employeeForm.value.name,

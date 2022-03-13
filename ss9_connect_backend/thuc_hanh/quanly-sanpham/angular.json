@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "quanly-sanpham"
+    }
+  },
+  "defaultProject": "quanly-sanpham",
+  "cli": {
+    "analytics": "675c5576-1863-42c2-92cc-9d002e9b7125"
+  }
 }

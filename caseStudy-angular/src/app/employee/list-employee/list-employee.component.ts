@@ -64,7 +64,6 @@ export class ListEmployeeComponent implements OnInit {
     this.dialog.afterAllClosed.subscribe(() => {
       this.employeeService.searchEmployee(this.name,this.address,this.position,this.education ,this.division).subscribe(value => {
         this.employeeList = value;
-        console.log(this.employeeList);
       });
 
     });

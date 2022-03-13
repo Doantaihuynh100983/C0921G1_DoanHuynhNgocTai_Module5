@@ -1,0 +1,19 @@
+{
+  "productList": [
+    {
+      "id": 983,
+      "name": "Iphone 11",
+      "price": 12
+    },
+    {
+      "id": 652,
+      "name": "Iphone 13",
+      "price": 12
+    },
+    {
+      "id": "12",
+      "name": "12",
+      "price": "12"
+    }
+  ]
+}

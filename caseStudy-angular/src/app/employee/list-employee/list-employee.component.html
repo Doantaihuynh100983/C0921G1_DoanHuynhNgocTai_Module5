@@ -13,17 +13,17 @@
             <div class="d-flex bd-highlight">
               <div class="p-2 flex-fill bd-highlight">
                 <input type="text" id="customerName"
-                       placeholder="Tên Nhân Viên" style="width:200px;height: 38px" [(ngModel)]="name">
+                       placeholder="Tên Nhân Viên" style="width:150px;height: 38px" [(ngModel)]="name">
               </div>
               <div class="p-2 flex-fill bd-highlight">
                 <input type="text" id="customerAddress" placeholder="Địa chỉ"
-                       style="width:200px;height: 38px"  [(ngModel)]="address"><br><br>
+                       style="width:150px;height: 38px"  [(ngModel)]="address"><br><br>
               </div>
               <div class="p-2 flex-fill bd-highlight">
                 <select id="division"
                         class="form-control"
-                        required="required"  [(ngModel)]="division">
-                  <option value="" disabled [selected]="true">Chọn Tại Đây !!!</option>
+                        required="required"  [(ngModel)]="division"   style="width:150px;height: 38px" >
+                  <option value="" disabled [selected]="true">Bộ Phận !!!</option>
                   <option  *ngFor="let dv of divisionList" [ngValue]="dv.id">{{dv.name}}</option>
 
                 </select>
@@ -32,16 +32,16 @@
               <div class="p-2 flex-fill bd-highlight">
                 <select id="position"
                         class="form-control"
-                        required="required"   [(ngModel)]="position">
-                  <option value="" disabled [selected]="true">Chọn Tại Đây !!!</option>
+                        required="required"   [(ngModel)]="position"   style="width:150px;height: 38px"   >
+                  <option value="" disabled [selected]="true">Chức Vụ !!!</option>
                   <option  *ngFor="let ps of positionList" [ngValue]="ps.id">{{ps.name}}</option>
                 </select>
               </div>
 
               <div class="p-2 flex-fill bd-highlight">
                 <select id="educationDegree"
-                        class="form-control" required="required"  [(ngModel)]="education">
-                  <option value="" disabled [selected]="true">Chọn Tại Đây !!!</option>
+                        class="form-control" required="required"  [(ngModel)]="education"  style="width:150px;height: 38px" >
+                  <option value="" disabled [selected]="true">Học Vấn!!!</option>
                   <option  *ngFor="let ed of educationList" [ngValue]="ed.id">{{ed.name}}</option>
 
 

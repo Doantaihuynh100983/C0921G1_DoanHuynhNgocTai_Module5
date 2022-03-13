@@ -16,6 +16,9 @@ public class Service {
     private int poolArea;
     private int numberOfFloors;
 
+    @Column(columnDefinition = "integer default 1")
+    private int flagDeleteService;
+
 
     @ManyToOne
     @JoinColumn(name = "rentTypeId", referencedColumnName = "id")
@@ -115,5 +118,13 @@ public class Service {
 
     public void setServiceType(ServiceType serviceType) {
         this.serviceType = serviceType;
+    }
+
+    public int getFlagDeleteService() {
+        return flagDeleteService;
+    }
+
+    public void setFlagDeleteService(int flagDeleteService) {
+        this.flagDeleteService = flagDeleteService;
     }
 }

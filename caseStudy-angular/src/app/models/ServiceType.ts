@@ -1,6 +1,6 @@
-export class Education {
-    private _id? : number;
-    private _name? : string;
+export class ServiceType {
+    private _id?: number;
+    private _name?: string;
 
   constructor() {
   }
@@ -12,7 +12,6 @@ export class Education {
   set id(value: number) {
     this._id = value;
   }
-
 
   get name(): string {
     return this._name;

@@ -13,8 +13,18 @@ import java.util.List;
 public class ServiceService implements IServiceService {
     @Autowired
     private IServiceRepository iServiceRepository;
+//    @Override
+//    public List<vn.codegym.model.Service> getAllService() {
+//        return iServiceRepository.findAll();
+//    }
+
     @Override
-    public List<vn.codegym.model.Service> getAllService() {
-        return iServiceRepository.findAll();
+    public List<vn.codegym.model.Service> searchService(String name, String rentType, String serviceType) {
+        return iServiceRepository.searchService(name,rentType,serviceType);
+    }
+
+    @Override
+    public vn.codegym.model.Service save(vn.codegym.model.Service service) {
+        return iServiceRepository.save(service);
     }
 }

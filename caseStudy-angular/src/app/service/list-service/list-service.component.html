@@ -8,32 +8,29 @@
           <div class="p-2 flex-grow-1 bd-highlight">
             <a type="button" class="btn btn-outline-primary" [routerLink]="['/service/addService']" routerLinkActive="router-link-active">THÊM MỚI DỊCH VỤ</a>
           </div>
-          <form>
-
-            <div class="d-flex bd-highlight">
+          <div class="d-flex bd-highlight">
               <div class="p-2 flex-fill bd-highlight">
-                <input type="text" id="serviceName" name="serviceName" placeholder="Tên Dịch Vụ"
+                <input type="text" id="serviceName"  [(ngModel)]="name"  placeholder="Tên Dịch Vụ"
                        style="width:200px;height: 38px">
               </div>
               <div class="p-2 flex-fill bd-highlight">
-                <select id="rentType" style="width:100px;height: 38px" name="rentType">
-                  <option selected disabled>Loại Thuê</option>
-                  <option></option>
+                <select id="rentType" style="width:200px;height: 38px"  [(ngModel)]="rentType">
+                  <option [selected]="true" value="" disabled>Loại Thuê</option>
+                  <option [ngValue]="rt.id" *ngFor="let rt of rentTypeList">{{rt.name}}</option>
                 </select>
               </div>
               <div class="p-2 flex-fill bd-highlight">
-                <select id="serviceType" style="width:150px;height: 38px" name="serviceType">
-                  <option selected disabled>Loại Dịch Vụ</option>
-                  <option></option>
+                <select id="serviceType" style="width:200px;height: 38px"  [(ngModel)]="serviceType">
+                  <option  disabled [selected]="true" value="">Loại Dịch Vụ</option>
+                  <option [ngValue]="svt.id" *ngFor="let svt of serviceTypeList">{{svt.name}}</option>
                 </select>
               </div>
 
 
               <div class="p-2 flex-fill bd-highlight">
-                <button type="submit" class="btn btn-outline-primary">TÌM KIẾM</button>
+                <button type="submit" (click)="searchService()" class="btn btn-outline-primary">TÌM KIẾM</button>
               </div>
             </div>
-          </form>
         </div>
 
       </div>
@@ -45,6 +42,8 @@
           <th scope="col">Name</th>
           <th scope="col">Service Area</th>
           <th scope="col">Cost</th>
+          <th scope="col">Max People</th>
+          <th scope="col">Standard Room</th>
           <th scope="col">Service Type</th>
           <th scope="col">Rent Type</th>
           <th scope="col">Status</th>
@@ -56,8 +55,10 @@
           <th>{{sv.name}}</th>
           <th>{{sv.area}}</th>
           <th>{{sv.cost}}</th>
-          <th>{{sv.serviceType}}</th>
-          <th>{{sv.rentType}}</th>
+          <th>{{sv.maxPeople}}</th>
+          <th>{{sv.standardRoom}}</th>
+          <th>{{sv.serviceType.name}}</th>
+          <th>{{sv.rentType.name}}</th>
 
           <th>
             <button type="button" class="btn btn-primary btnViewService" data-bs-toggle="modal"

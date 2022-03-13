@@ -1,55 +1,45 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 import {Service} from '../models/service';
+import {Observable} from 'rxjs';
+import {RentType} from '../models/RentType';
+import {ServiceType} from '../models/ServiceType';
+import {Employee} from '../models/employee';
+
+
+const URL_SERVICE="http://localhost:8080/api/service/";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceService {
-    serviceList: Service[] = [
-      {
-        id : 1,
-        name:"Villa 1",
-        area: 12,
-        cost: 21,
-        maxPeople: 2,
-        standandRoom: "Vip",
-        descriptionOtherConvenience: "Nomal",
-        poolArea: 2,
-        numberOfFloors: 2,
-        serviceType:"Villa",
-        rentType:"Giờ"
-      },
-      {
-        id : 2,
-        name:"Room 1",
-        area: 12,
-        cost: 21,
-        maxPeople: 2,
-        standandRoom: "Vip",
-        descriptionOtherConvenience: "Nomal",
-        poolArea: 2,
-        numberOfFloors: 2,
-        serviceType:"Room",
-        rentType:"Ngày"
-      },
-      {
-        id : 3,
-        name:"House 1",
-        area: 12,
-        cost: 21,
-        maxPeople: 2,
-        standandRoom: "Vip",
-        descriptionOtherConvenience: "Nomal",
-        poolArea: 2,
-        numberOfFloors: 2,
-        serviceType:"House",
-        rentType:"Giờ"
-      },
-    ];
 
-  constructor() { }
 
-  getAllService(){
-    return this.serviceList;
+
+  constructor(private  http : HttpClient) { }
+
+  // getAllService(): Observable<Service[]>{
+  //   return this.http.get<Service[]>(URL_SERVICE + 'list');
+  //
+  // }
+  getAllRentType(): Observable<RentType[]>{
+    return this.http.get<RentType[]>(URL_SERVICE + 'rentType');
+
   }
+
+  getAllServiceType(): Observable<ServiceType[]>{
+    return this.http.get<ServiceType[]>(URL_SERVICE + 'serviceType');
+  }
+
+
+  searchAllService(name : string ,rentType: string ,serviceType: string): Observable<Service[]>{
+    return this.http.get<Service[]>(URL_SERVICE + "search?name=" + name + "&rentType=" + rentType + "&serviceType="+ serviceType )
+  }
+
+
+  saveService(service: Service) : Observable<Service>{
+    return this.http.post<Service>(URL_SERVICE + 'add', service);
+  }
+
+
 }

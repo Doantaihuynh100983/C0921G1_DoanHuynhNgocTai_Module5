@@ -1,6 +1,8 @@
-export class Education {
-    private _id? : number;
-    private _name? : string;
+export class Product {
+    private _id?: number;
+    private _name?: string;
+    private _price?: number;
+
 
   constructor() {
   }
@@ -13,12 +15,19 @@ export class Education {
     this._id = value;
   }
 
-
   get name(): string {
     return this._name;
   }
 
   set name(value: string) {
     this._name = value;
+  }
+
+  get price(): number {
+    return this._price;
+  }
+
+  set price(value: number) {
+    this._price = value;
   }
 }
