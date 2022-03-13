@@ -1,7 +1,10 @@
+import {Category} from './Category';
+
 export class Product {
     private _id?: number;
     private _name?: string;
     private _price?: number;
+    private _category?: Category;
 
 
   constructor() {
@@ -29,5 +32,13 @@ export class Product {
 
   set price(value: number) {
     this._price = value;
+  }
+
+  get category(): Category {
+    return this._category;
+  }
+
+  set category(value: Category) {
+    this._category = value;
   }
 }

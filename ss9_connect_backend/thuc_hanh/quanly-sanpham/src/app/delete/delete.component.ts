@@ -22,6 +22,7 @@ export class DeleteComponent implements OnInit {
         id: new FormControl(product.id),
         name: new FormControl(product.name),
         price: new FormControl(product.price),
+        category: new FormControl(product.category)
       })
     })
 
@@ -29,7 +30,7 @@ export class DeleteComponent implements OnInit {
 
 
   delete(id: number) {
-    this.productService.deleteCategory(id).subscribe(() => {
+    this.productService.deleteProduct(id).subscribe(() => {
       this.router.navigate(['']);
     }, e => {
       console.log(e);

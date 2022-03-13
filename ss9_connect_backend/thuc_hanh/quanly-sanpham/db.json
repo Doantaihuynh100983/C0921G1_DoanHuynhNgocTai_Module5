@@ -1,19 +1,41 @@
 {
   "productList": [
     {
-      "id": 983,
-      "name": "Iphone 11",
-      "price": 12
-    },
-    {
       "id": 652,
       "name": "Iphone 13",
-      "price": 12
+      "price": 12,
+      "category": {
+        "id": 1,
+        "name": "Dien Thoai"
+      }
     },
     {
       "id": "12",
       "name": "12",
-      "price": "12"
+      "price": "12",
+      "category": {
+        "id": 2,
+        "name": "May Tinh"
+      }
+    },
+    {
+      "id": "13",
+      "name": "222",
+      "price": "1",
+      "category": {
+        "id": 1,
+        "name": "Dien Thoai"
+      }
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "Dien Thoai"
+    },
+    {
+      "id": 2,
+      "name": "May Tinh"
     }
   ]
 }
