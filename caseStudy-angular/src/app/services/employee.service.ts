@@ -52,8 +52,8 @@ export class EmployeeService {
     return this.http.put<Employee>(API_URL + 'update/' +id , employee);
   }
 
-deleteEmployee(id : number , employee : Employee): Observable<any>{
-    return this.http.put<any>(API_URL + 'delete?id='+id , employee)
+deleteEmployee( employee : Employee): Observable<any>{
+    return this.http.put<any>(API_URL + 'delete?id='+employee.id , employee)
 }
 
 

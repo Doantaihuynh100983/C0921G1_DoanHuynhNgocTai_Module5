@@ -38,8 +38,8 @@ export class DeleteEmployeeComponent implements OnInit {
     this.dialog.close();
   }
 
-  deleteEmployee(id : number) {
-      this.employeeService.deleteEmployee(id,this.employee).subscribe(()=>{
+  deleteEmployee() {
+      this.employeeService.deleteEmployee(this.employee).subscribe(()=>{
         this.dialog.close();
         this.toast.error( this.employee.name, "Đã Xóa Thành Công" ,
           {

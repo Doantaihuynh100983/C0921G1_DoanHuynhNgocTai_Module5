@@ -3,6 +3,9 @@ import {Service} from '../../models/service';
 import {ServiceService} from '../../services/service.service';
 import {RentType} from '../../models/RentType';
 import {ServiceType} from '../../models/ServiceType';
+import {MatDialog} from '@angular/material/dialog';
+import {DeleteEmployeeComponent} from '../../employee/delete-employee/delete-employee.component';
+import {DeleteServiceComponent} from '../delete-service/delete-service.component';
 
 @Component({
   selector: 'app-list-service',
@@ -13,8 +16,11 @@ export class ListServiceComponent implements OnInit {
   serviceList: Service[] = [];
   rentTypeList: RentType[] = [];
   serviceTypeList: ServiceType[] = [];
+  p : number=1;
 
-  constructor(private serviceService: ServiceService) {
+
+  constructor(private serviceService: ServiceService,
+              private  dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -28,6 +34,15 @@ export class ListServiceComponent implements OnInit {
   }
 
 
+  openDialog(id): void {
+    this.dialog.open(DeleteServiceComponent, {
+        width: '400px',
+        height: '600',
+        data: id,
+      }
+    );
+  }
+
 //   this.serviceService.getAllService().subscribe(value => {
 //   this.serviceList = value;
 //   console.log(this.serviceList);
@@ -37,8 +52,23 @@ export class ListServiceComponent implements OnInit {
   serviceType: string='';
 
   searchService() {
-      this.serviceService.searchAllService(this.name,this.rentType,this.serviceType).subscribe(value => {
-        this.serviceList = value;
-      })
+    this.dialog.afterAllClosed.subscribe(()=>{
+      this.search();
+    })
+
+  }
+
+  clear() {
+    this.name = '';
+    this.rentType='';
+    this.serviceType='';
+    this.search();
+
+  }
+
+  search(){
+    this.serviceService.searchAllService(this.name,this.rentType,this.serviceType).subscribe(value => {
+      this.serviceList = value;
+    })
   }
 }

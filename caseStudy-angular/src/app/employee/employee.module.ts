@@ -9,8 +9,7 @@ import {ToastrModule} from 'ngx-toastr';
 import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
 import {HttpParams} from '@angular/common/http';
 import {MatDialogModule} from '@angular/material/dialog';
-
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 const employeeRouter:Routes=[
@@ -46,7 +45,10 @@ const employeeRouter:Routes=[
     ReactiveFormsModule,
     ToastrModule.forRoot(),
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule,
+
+
   ]
 })
 export class EmployeeModule { }

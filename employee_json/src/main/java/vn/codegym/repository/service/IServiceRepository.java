@@ -1,6 +1,7 @@
 package vn.codegym.repository.service;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -16,4 +17,9 @@ public interface IServiceRepository extends JpaRepository<Service,Integer> {
     List<Service> searchService(@Param("name") String name,
                                 @Param("rentType") String rentType,
                                 @Param("serviceType") String serviceType);
+
+
+    @Modifying
+    @Query(value = "UPDATE Service SET flag_delete_service = 0 WHERE  id = :id ", nativeQuery = true)
+    void deleteById(@Param("id") int id);
 }

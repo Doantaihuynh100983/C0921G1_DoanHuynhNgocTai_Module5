@@ -12,16 +12,18 @@
               <div class="card mt-2 mx-auto p-4 bg-light">
                 <div class="card-body bg-light">
                   <div class="container">
-                    <form id="contact-form" role="form">
+                    <form id="contact-form" role="form" [formGroup]="serviceForm" (ngSubmit)="updateService(id)">
                       <div class="controls">
                         <div class="row">
+                          <input type="hidden" formControlName="id">
+                          <input type="hidden" formControlName="flagDeleteService">
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="serviceName">Name *</label>
                               <input id="serviceName" type="text"
                                      class="form-control"
                                      placeholder="Please enter your Name *"
-                                     required="required">
+                                     required="required"  formControlName="name">
                             </div>
 
                           </div>
@@ -29,7 +31,7 @@
                             <div class="form-group"><label for="serviceArea">Service Area
                               *</label> <input id="serviceArea" type="text"
                                                placeholder="Please enter your Service Area *"
-                                               class="form-control" required="required">
+                                               class="form-control" required="required" formControlName="area">
 
                             </div>
                           </div>
@@ -41,7 +43,7 @@
                               <input id="serviceCost" type="text"
                                      class="form-control"
                                      placeholder="Please enter your Service Cost  *"
-                                     required="required">
+                                     required="required" formControlName="cost">
                             </div>
                           </div>
                           <div class="col-md-6">
@@ -50,7 +52,7 @@
                               <input id="serviceMaxPeople" type="text"
                                      class="form-control"
                                      placeholder="Please enter your Service Max People *"
-                                     required="required">
+                                     required="required" formControlName="maxPeople">
                             </div>
                           </div>
                         </div>
@@ -62,7 +64,7 @@
                                                type="text"
                                                class="form-control"
                                                placeholder="Please enter your Standand Description *"
-                                               required="required">
+                                               required="required" formControlName="description">
                             </div>
                           </div>
 
@@ -72,7 +74,7 @@
                               <input id="poolArea" type="text"
                                      class="form-control"
                                      placeholder="Please enter your Pool Area *"
-                                     required="required">
+                                     required="required" formControlName="poolArea">
                             </div>
                           </div>
                         </div>
@@ -83,7 +85,7 @@
                               *</label> <input id="standandRoom" type="text"
                                                name="standandRoom" class="form-control"
                                                placeholder="Please enter your Standand Room *"
-                                               required="required">
+                                               required="required" formControlName="standardRoom">
                             </div>
                           </div>
                           <div class="col-md-6">
@@ -92,7 +94,7 @@
                               *</label> <input id="numberOfFloors" type="text"
                                                class="form-control"
                                                placeholder="Please enter your Number Of Floors *"
-                                               required="required">
+                                               required="required" formControlName="numberOfFloors">
                             </div>
                           </div>
 
@@ -103,8 +105,11 @@
                             <div class="form-group"><label for="rentType">Rent Type
                               *</label>
                               <select id="rentType" name="rentType" class="form-control"
-                                      required="required">
-                                <option>Chọn Đi</option>
+                                      required="required" formControlName="rentType">
+                                <option [ngValue]="rt"  *ngFor="let rt of rentTypeList"
+                                          [selected]="rt.id == serviceForm.controls.rentType.value.id">
+                                  {{rt.name}}
+                                </option>
                               </select>
                             </div>
                           </div>
@@ -113,8 +118,10 @@
                               *</label>
                               <select id="serviceType"
                                       class="form-control"
-                                      required="required">
-                                <option>Chọn Đi</option>
+                                      required="required" formControlName="serviceType">
+\                                <option  [ngValue]="svt"  *ngFor="let svt of serviceTypeList"
+                                          [selected]="svt.id == serviceForm.controls.serviceType.value.id"
+                              >{{svt.name}}</option>
                               </select>
                             </div>
                           </div>

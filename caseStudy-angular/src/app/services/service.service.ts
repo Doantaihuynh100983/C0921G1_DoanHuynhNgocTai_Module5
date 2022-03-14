@@ -41,5 +41,15 @@ export class ServiceService {
     return this.http.post<Service>(URL_SERVICE + 'add', service);
   }
 
+  findById(id: number): Observable<Service>{
+    return this.http.get<Service>(URL_SERVICE  + "detail/" + id);
+  }
 
+  updateService(id: number , service: Service): Observable<Service>{
+    return this.http.put<Service>(URL_SERVICE + "update/" + id , service);
+  }
+
+  deleteService(service : Service): Observable<Service>{
+    return this.http.patch<Service>(URL_SERVICE + "delete?=id"+service.id , service)
+  }
 }

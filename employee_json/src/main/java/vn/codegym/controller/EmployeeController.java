@@ -104,9 +104,9 @@ public class EmployeeController {
     }
 
     @PutMapping("delete")
-    public ResponseEntity<?> delete(@RequestParam Integer id){
-       iEmployeeService.deleteEmployee(id);
-       return ResponseEntity.ok("");
+    public ResponseEntity<?> delete(@RequestBody Employee employee){
+       iEmployeeService.deleteEmployee(employee.getId());
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/search")

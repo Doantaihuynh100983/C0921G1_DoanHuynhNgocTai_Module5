@@ -5,6 +5,9 @@ import {ListServiceComponent} from './list-service/list-service.component';
 import {UpdateServiceComponent} from './update-service/update-service.component';
 import {AddServiceComponent} from './add-service/add-service.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { DeleteServiceComponent } from './delete-service/delete-service.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 const serviceRoute: Routes = [
@@ -15,7 +18,7 @@ const serviceRoute: Routes = [
     path: 'addService', component: AddServiceComponent
   },
   {
-    path: 'updateService', component: UpdateServiceComponent
+    path: 'updateService/:id', component: UpdateServiceComponent
   },
 ];
 
@@ -24,13 +27,16 @@ const serviceRoute: Routes = [
   declarations: [
     ListServiceComponent,
     UpdateServiceComponent,
-    AddServiceComponent
+    AddServiceComponent,
+    DeleteServiceComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(serviceRoute),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    NgxPaginationModule
   ]
 })
 export class ServiceModule {

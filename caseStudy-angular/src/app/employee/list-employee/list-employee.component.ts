@@ -6,8 +6,7 @@ import {DeleteEmployeeComponent} from '../delete-employee/delete-employee.compon
 import {position} from '../../models/position';
 import {Education} from '../../models/Education';
 import {Division} from '../../models/Division';
-import {FormControl, FormGroup} from '@angular/forms';
-import {ActivatedRoute} from '@angular/router';
+
 
 @Component({
   selector: 'app-list-employee',
@@ -19,19 +18,18 @@ export class ListEmployeeComponent implements OnInit {
   positionList: position[] = [];
   educationList: Education[] = [];
   divisionList: Division[] = [];
+  p: number = 1;
 
 
-  name: string ='';
+  name: string = '';
   address: string = '';
   division: string = '';
   position: string = '';
   education: string = '';
 
   constructor(private employeeService: EmployeeService,
-              private  dialog: MatDialog,
-              private activatedRoute: ActivatedRoute ) {
+              private  dialog: MatDialog) {
   }
-
 
 
   ngOnInit(): void {
@@ -41,7 +39,7 @@ export class ListEmployeeComponent implements OnInit {
         this.educationList = value;
         this.employeeService.getAllDivision().subscribe(value => {
           this.divisionList = value;
-                  this.getSearch();
+          this.getSearch();
         });
       });
 
@@ -62,10 +60,25 @@ export class ListEmployeeComponent implements OnInit {
 
   getSearch() {
     this.dialog.afterAllClosed.subscribe(() => {
-      this.employeeService.searchEmployee(this.name,this.address,this.position,this.education ,this.division).subscribe(value => {
-        this.employeeList = value;
-      });
+      this.search();
 
+    });
+  }
+
+  clear() {
+    this.name = '';
+    this.address = '';
+    this.division = '';
+    this.position = '';
+    this.education = '';
+    this.search();
+
+  }
+
+
+  search() {
+    this.employeeService.searchEmployee(this.name, this.address, this.position, this.education, this.division).subscribe(value => {
+      this.employeeList = value;
     });
   }
 }

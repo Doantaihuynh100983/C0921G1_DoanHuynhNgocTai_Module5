@@ -17,7 +17,7 @@
               </div>
               <div class="p-2 flex-fill bd-highlight">
                 <input type="text" id="customerAddress" placeholder="Địa chỉ"
-                       style="width:150px;height: 38px"  [(ngModel)]="address"><br><br>
+                       style="width:120px;height: 38px"  [(ngModel)]="address"><br><br>
               </div>
               <div class="p-2 flex-fill bd-highlight">
                 <select id="division"
@@ -32,7 +32,7 @@
               <div class="p-2 flex-fill bd-highlight">
                 <select id="position"
                         class="form-control"
-                        required="required"   [(ngModel)]="position"   style="width:150px;height: 38px"   >
+                        required="required"   [(ngModel)]="position"   style="width:120px;height: 38px"   >
                   <option value="" disabled [selected]="true">Chức Vụ !!!</option>
                   <option  *ngFor="let ps of positionList" [ngValue]="ps.id">{{ps.name}}</option>
                 </select>
@@ -40,7 +40,7 @@
 
               <div class="p-2 flex-fill bd-highlight">
                 <select id="educationDegree"
-                        class="form-control" required="required"  [(ngModel)]="education"  style="width:150px;height: 38px" >
+                        class="form-control" required="required"  [(ngModel)]="education"  style="width:120px;height: 38px" >
                   <option value="" disabled [selected]="true">Học Vấn!!!</option>
                   <option  *ngFor="let ed of educationList" [ngValue]="ed.id">{{ed.name}}</option>
 
@@ -49,6 +49,7 @@
               </div>
               <div class="p-2 flex-fill bd-highlight">
                 <button type="submit" class="btn btn-primary" (click)="getSearch()">TÌM KIẾM</button>
+                <button type="submit" class="btn btn-primary" (click)="clear()">CLEAR</button>
               </div>
             </div>
 
@@ -72,7 +73,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let emp of employeeList" style="text-align: center">
+        <tr *ngFor="let emp of employeeList | paginate: { itemsPerPage: 7, currentPage: p}" style="text-align: center">
           <th>{{emp.id}}</th>
           <th>{{emp.name}}</th>
           <th>{{emp.email}}</th>
@@ -98,7 +99,7 @@
         </tr>
         </tbody>
       </table>
-
+      <pagination-controls (pageChange)="p = $event" style="text-align: center"></pagination-controls>
     </div>
   </div>
 </div>

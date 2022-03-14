@@ -25,14 +25,7 @@
       <th scope="col">Phone</th>
       <th scope="col" style="text-align: center">{{this.employee.phone}}</th>
     </tr>
-<!--    <tr>-->
-<!--      <th scope="col">Position</th>-->
-<!--      <th scope="col" style="text-align: center">{{this.employee.position.name}}</th>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--      <th scope="col">Division</th>-->
-<!--      <th scope="col" style="text-align: center">{{this.employee.division.name}}</th>-->
-<!--    </tr>-->
+
     </thead>
     <tbody>
 
@@ -41,5 +34,5 @@
 </div>
 <div class="modal-footer justify-content-center">
   <button type="button" class="btn btn-secondary" (click)="onNoClick()">Back</button>
-  <button type="button" class="btn btn-danger" (click)="deleteEmployee(this.employee.id)">Delete</button>
+  <button type="button" class="btn btn-danger" (click)="deleteEmployee()">Delete</button>
 </div>
