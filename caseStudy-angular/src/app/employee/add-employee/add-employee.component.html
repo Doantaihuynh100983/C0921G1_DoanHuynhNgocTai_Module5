@@ -15,33 +15,33 @@
                     <form id="contact-form" role="form" [formGroup]="employeeForm" (ngSubmit)="addEmployee()">
                       <div class="controls">
                         <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="employeeId">Id *</label>
-                              <input id="employeeId" type="text"
-                                     class="form-control"
-                                     placeholder="Please enter your Id *"
-                                     required="required" formControlName="id">
-                              <div *ngIf="employeeForm.controls.id.invalid && (employeeForm.controls.id.dirty || employeeForm.controls.id.touched)">
-                                <div *ngIf="employeeForm.controls.id.errors">
-                                  <div *ngIf="employeeForm.controls.id.errors.required">
-                                    <p style="color: red">Không Được Để Trống !!!</p>
-                                  </div>
-                                </div>
+<!--                          <div class="col-md-6">-->
+<!--                            <div class="form-group">-->
+<!--                              <label for="employeeId">Id *</label>-->
+<!--                              <input id="employeeId" type="text"-->
+<!--                                     class="form-control"-->
+<!--                                     placeholder="Please enter your Id *"-->
+<!--                                     required="required" formControlName="id">-->
+<!--                              <div *ngIf="employeeForm.controls.id.invalid && flagValid">-->
+<!--                                <div *ngIf="employeeForm.controls.id.errors">-->
+<!--                                  <div *ngIf="employeeForm.controls.id.errors.required">-->
+<!--                                    <p style="color: red">Không Được Để Trống !!!</p>-->
+<!--                                  </div>-->
+<!--                                </div>-->
 
-                              </div>
-                            </div>
-                          </div>
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                          </div>-->
 
 
-                          <div class="col-md-6">
+                          <div class="col-md-12">
                             <div class="form-group">
                               <label for="employeeName">Name *</label>
                               <input id="employeeName" type="text"
                                      class="form-control"
                                      placeholder="Please enter your Name *"
                                      required="required" formControlName="name">
-                              <div *ngIf="employeeForm.controls.name.invalid && (employeeForm.controls.name.dirty || employeeForm.controls.name.touched)">
+                              <div *ngIf="employeeForm.controls.name.invalid && flagValid">
                                 <div *ngIf="employeeForm.controls.name.errors">
                                   <div *ngIf="employeeForm.controls.name.errors.required">
                                     <p style="color: red">Không Được Để Trống !!!</p>
@@ -63,10 +63,14 @@
                             <div class="form-group"><label for="employeeBirthday">Birthday
                               *</label> <input  formControlName="birthDay" id="employeeBirthday" type="date" class="form-control" required="required">
                             </div>
-                            <div *ngIf="employeeForm.controls.birthDay.invalid && (employeeForm.controls.birthDay.dirty || employeeForm.controls.birthDay.touched)">
+                            <div *ngIf="employeeForm.controls.birthDay.invalid && flagValid">
                               <div *ngIf="employeeForm.controls.birthDay.errors">
                                 <div *ngIf="employeeForm.controls.birthDay.errors.required">
                                   <p style="color: red">Bắt Buộc Chọn !!!</p>
+                                </div>
+
+                                <div *ngIf="employeeForm.controls.birthDay.errors.checkAge">
+                                  <p style="color: red">Chưa Đủ 18 Mà Đi Làm À !!!</p>
                                 </div>
                               </div>
 
@@ -79,6 +83,17 @@
                               <input id="employeeIdCard" type="text" class="form-control"
                                      placeholder="Please enter your Id Card *"
                                      required="required" formControlName="idCard">
+                              <div *ngIf="employeeForm.controls.idCard.invalid && flagValid">
+                                <div *ngIf="employeeForm.controls.idCard.errors">
+                                  <div *ngIf="employeeForm.controls.idCard.errors.required">
+                                    <p style="color: red">Bắt Buộc Nhập !!!</p>
+                                  </div>
+                                  <div *ngIf="employeeForm.controls.idCard.errors.pattern">
+                                    <p style="color: red">Không Đúng Định Dạng !!!</p>
+                                  </div>
+                                </div>
+
+                              </div>
                             </div>
                           </div>
 
@@ -91,6 +106,17 @@
                                      class="form-control"
                                      placeholder="Please enter your Salary *"
                                      required="required" formControlName="salary">
+                              <div *ngIf="employeeForm.controls.salary.invalid && flagValid">
+                                <div *ngIf="employeeForm.controls.salary.errors">
+                                  <div *ngIf="employeeForm.controls.salary.errors.required">
+                                    <p style="color: red">Không Có Bỏ Trống !!!</p>
+                                  </div>
+                                  <div *ngIf="employeeForm.controls.salary.errors.salaryCode">
+                                    <p style="color: red">Trả Lương Hơn 500.000 Mày !!!</p>
+                                  </div>
+                                </div>
+
+                              </div>
                             </div>
                           </div>
 
@@ -101,7 +127,7 @@
                                                placeholder="Please enter your Phone *"
                                                required="required" formControlName="phone">
                             </div>
-                            <div *ngIf="employeeForm.controls.phone.invalid && (employeeForm.controls.phone.dirty || employeeForm.controls.phone.touched)">
+                            <div *ngIf="employeeForm.controls.phone.invalid && flagValid">
                               <div *ngIf="employeeForm.controls.phone.errors">
                                 <div *ngIf="employeeForm.controls.phone.errors.required">
                                   <p style="color: red">Không Được Để Trống !!!</p>
@@ -123,7 +149,7 @@
                                      class="form-control"
                                      placeholder="Please enter your Email *"
                                      required="required" formControlName="email">
-                              <div *ngIf="employeeForm.controls.email.invalid && (employeeForm.controls.email.dirty || employeeForm.controls.email.touched)">
+                              <div *ngIf="employeeForm.controls.email.invalid && flagValid">
                                 <div *ngIf="employeeForm.controls.email.errors">
                                   <div *ngIf="employeeForm.controls.email.errors.required">
                                     <p style="color: red">Không Được Để Trống !!!</p>
@@ -143,7 +169,7 @@
                                                placeholder="Please enter your Adress *"
                                                required="required" formControlName="address">
                             </div>
-                            <div *ngIf="employeeForm.controls.address.invalid && (employeeForm.controls.address.dirty || employeeForm.controls.address.touched)">
+                            <div *ngIf="employeeForm.controls.address.invalid && flagValid">
                               <div *ngIf="employeeForm.controls.address.errors">
                                 <div *ngIf="employeeForm.controls.address.errors.required">
                                   <p style="color: red">Không Được Để Trống !!!</p>
@@ -166,7 +192,7 @@
 
 
                               </select>
-                              <div *ngIf="employeeForm.controls.education.invalid && (employeeForm.controls.education.dirty || employeeForm.controls.education.touched)">
+                              <div *ngIf="employeeForm.controls.education.invalid && flagValid">
                                 <div *ngIf="employeeForm.controls.education.errors">
                                   <div *ngIf="employeeForm.controls.education.errors.required">
                                     <p style="color: red">Bắt Buộc Chọn !!!</p>
@@ -184,7 +210,7 @@
                                 <option value="" disabled [selected]="true">Chọn Tại Đây !!!</option>
                                 <option  *ngFor="let ps of positionList" [ngValue]="ps">{{ps.name}}</option>
                               </select>
-                              <div *ngIf="employeeForm.controls.position.invalid && (employeeForm.controls.position.dirty || employeeForm.controls.position.touched)">
+                              <div *ngIf="employeeForm.controls.position.invalid  && flagValid">
                                 <div *ngIf="employeeForm.controls.position.errors">
                                   <div *ngIf="employeeForm.controls.position.errors.required">
                                     <p style="color: red">Bắt Buộc Chọn !!!</p>
@@ -204,7 +230,7 @@
                                 <option  *ngFor="let dv of divisionList" [ngValue]="dv">{{dv.name}}</option>
 
                               </select>
-                              <div *ngIf="employeeForm.controls.division.invalid && (employeeForm.controls.division.dirty || employeeForm.controls.division.touched)">
+                              <div *ngIf="employeeForm.controls.division.invalid && flagValid">
                                 <div *ngIf="employeeForm.controls.division.errors">
                                   <div *ngIf="employeeForm.controls.division.errors.required">
                                     <p style="color: red">Bắt Buộc Chọn !!!</p>
@@ -221,7 +247,7 @@
                       <div class="row">
                         <div class="col-md-12"><input type="submit"
                                                       class="btn btn-success btn-send pt-2 btn-block "
-                                                      value="Submit" [disabled]="employeeForm.invalid"></div>
+                                                      value="Submit"></div>
                       </div>
                     </form>
                   </div>

@@ -1,0 +1,171 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-12">
+      <div class="container">
+        <div class=" text-center mt-5 ">
+          <h1 style="color: #ff5050 ">THÊM MỚI LÔ HÀNG</h1>
+
+          <div class="row ">
+            <div class="content_01">
+              <div class="col-lg-7 mx-auto" style="width: 100%">
+                <div class="card mt-2 mx-auto p-4 bg-light">
+                  <div class="card-body bg-light">
+                    <div class="container">
+                      <form id="contact-form" role="form" [formGroup]="loHangForm" (ngSubmit)="themMoiLoHang()">
+                        <div class="controls">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="serviceName" >Mã Lô Hàng *</label>
+                                <input id="serviceName" type="text"
+                                       class="form-control" formControlName="maLoHang">
+                              </div>
+                              <div *ngIf="loHangForm.controls.maLoHang.invalid && flagValid">
+                                <div *ngIf="loHangForm.controls.maLoHang.errors">
+                                  <div *ngIf="loHangForm.controls.maLoHang.errors.required">
+                                    <p style="color: red">Bắt Buộc Nhập !!!</p>
+                                  </div>
+                                  <div *ngIf="loHangForm.controls.maLoHang.errors.pattern">
+                                    <p style="color: red">Mã Lô Hàng Phải Là LH-XXXX !!!</p>
+                                  </div>
+                                </div>
+
+                              </div>
+
+
+                          </div>
+
+                            <div class="col-md-6">
+                              <div class="form-group"><label for="serviceArea">Số Lượng
+                                *</label> <input id="serviceArea" type="text"
+                                                 class="form-control" formControlName="soLuong">
+
+                                <div *ngIf="loHangForm.controls.soLuong.invalid && flagValid">
+                                  <div *ngIf="loHangForm.controls.soLuong.errors">
+                                    <div *ngIf="loHangForm.controls.soLuong.errors.required">
+                                      <p style="color: red">Bắt Buộc Nhập !!!</p>
+                                    </div>
+                                                                      <div *ngIf="loHangForm.controls.soLuong.errors.soLuong">
+                                                                        <p style="color: red">Lớn Hơn Không Nhé!!!</p>
+                                                                      </div>
+                                  </div>
+
+
+                              </div>
+                            </div>
+                            </div>
+
+
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="serviceCost">Ngày Nhập Hàng *</label>
+                                <input id="serviceCost" type="date"
+                                       class="form-control" formControlName="ngayNhapHang">
+                              </div>
+                              <div *ngIf="loHangForm.controls.ngayNhapHang.invalid && flagValid">
+                                <div *ngIf="loHangForm.controls.ngayNhapHang.errors">
+                                  <div *ngIf="loHangForm.controls.ngayNhapHang.errors.required">
+                                    <p style="color: red">Bắt Buộc Nhập !!!</p>
+                                  </div>
+                                  <!--                                  <div *ngIf="employeeForm.controls.idCard.errors.pattern">-->
+                                  <!--                                    <p style="color: red">Không Đúng Định Dạng !!!</p>-->
+                                  <!--                                  </div>-->
+                                </div>
+
+
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+
+                              <div class="form-group">
+                                <label for="ngaySanXuat">Ngày Sản Xuất *</label>
+                                <input id="ngaySanXuat" type="date"
+                                       class="form-control" formControlName="ngaySanXuat">
+                              </div>
+                              <div *ngIf="loHangForm.controls.ngaySanXuat.invalid && flagValid">
+                                <div *ngIf="loHangForm.controls.ngaySanXuat.errors">
+                                  <div *ngIf="loHangForm.controls.ngaySanXuat.errors.required">
+                                    <p style="color: red">Bắt Buộc Nhập !!!</p>
+                                  </div>
+                                  <!--                                  <div *ngIf="employeeForm.controls.idCard.errors.pattern">-->
+                                  <!--                                    <p style="color: red">Không Đúng Định Dạng !!!</p>-->
+                                  <!--                                  </div>-->
+                                </div>
+
+
+                              </div>
+                            </div>
+
+
+                          </div>
+
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="ngayHethan">Ngày Hết Hạn  *</label>
+                                <input id="ngayHethan" type="date"
+                                       class="form-control" formControlName="ngayHetHan">
+                              </div>
+                              <div *ngIf="loHangForm.controls.ngayHetHan.invalid && flagValid">
+                                <div *ngIf="loHangForm.controls.ngayHetHan.errors">
+                                  <div *ngIf="loHangForm.controls.ngayHetHan.errors.required">
+                                    <p style="color: red">Bắt Buộc Nhập !!!</p>
+                                  </div>
+                                  <!--                                  <div *ngIf="employeeForm.controls.idCard.errors.pattern">-->
+                                  <!--                                    <p style="color: red">Không Đúng Định Dạng !!!</p>-->
+                                  <!--                                  </div>-->
+                                </div>
+
+
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group"><label for="rentType">Sản Phẩm
+                                *</label>
+                                <select id="rentType" class="form-control" formControlName="sanPham">
+                                  <option [selected]="true"  value=""  disabled>Chọn Đi !!!</option>
+                                  <option  [ngValue]="lh"  *ngFor="let lh of sanPhamList">{{lh.tenSanPham}}</option>                                </select>
+                              </div>
+                              <div *ngIf="loHangForm.controls.sanPham.invalid && flagValid">
+                                <div *ngIf="loHangForm.controls.sanPham.errors">
+                                  <div *ngIf="loHangForm.controls.sanPham.errors.required">
+                                    <p style="color: red">Bắt Buộc Nhập !!!</p>
+                                  </div>
+                                  <!--                                  <div *ngIf="employeeForm.controls.idCard.errors.pattern">-->
+                                  <!--                                    <p style="color: red">Không Đúng Định Dạng !!!</p>-->
+                                  <!--                                  </div>-->
+                                </div>
+
+
+                              </div>
+                            </div>
+
+
+                          </div>
+
+
+                          </div>
+                          <br>
+                          <div class="row">
+                            <div class="col-lg-12"><input type="submit"
+                                                          class="btn btn-success btn-send pt-2 btn-block "
+                                                          value="Quay Lại" [routerLink]="['/']"></div>
+                            <div class="col-lg-12"><input type="submit"
+                                                          class="btn btn-success btn-send pt-2 btn-block " value="Thêm Mới"></div>
+                          </div>
+                        </div>
+
+                      </form>
+                    </div>
+                  </div>
+                </div> <!-- /.8 -->
+              </div> <!-- /.row-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

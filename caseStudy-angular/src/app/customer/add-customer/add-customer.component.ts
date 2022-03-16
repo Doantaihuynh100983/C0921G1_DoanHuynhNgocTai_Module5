@@ -27,6 +27,7 @@ export class AddCustomerComponent implements OnInit {
               private  toast : ToastrService) {
   }
 
+
   ngOnInit(): void {
   }
 

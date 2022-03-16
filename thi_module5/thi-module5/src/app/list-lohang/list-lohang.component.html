@@ -1,0 +1,80 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-12">
+      <div>
+        <br>
+        <div class="d-flex bd-highlight">
+          <div class="p-2 flex-grow-1 bd-highlight">
+            <a type="button" class="btn btn-outline-primary" [routerLink]="['/add']"> THÊM MỚI LÔ HÀNG</a>
+          </div>
+          <div class="d-flex bd-highlight">
+            <div class="p-2 flex-fill bd-highlight">
+              <input type="text" id="serviceName" placeholder="Tên Sản Phẩm"
+                     style="width:200px;height: 38px" [(ngModel)]="tenSanPham">
+            </div>
+<!--            <div class="p-2 flex-fill bd-highlight">-->
+<!--              <input type="date"-->
+<!--                     style="width:200px;height: 38px" [(ngModel)]="ngayHetHan">-->
+<!--            </div>-->
+<!--            <div class="p-2 flex-fill bd-highlight">-->
+<!--              <select id="rentType" style="width:200px;height: 38px"  >-->
+<!--                <option value=""></option>-->
+<!--              </select>-->
+<!--            </div>-->
+<!--            <div class="p-2 flex-fill bd-highlight">-->
+<!--              <select id="serviceType" style="width:200px;height: 38px" >-->
+<!--                <option value=""></option>-->
+
+<!--              </select>-->
+<!--            </div>-->
+
+
+            <div class="p-2 flex-fill bd-highlight">
+              <button type="submit" class="btn btn-outline-primary" (click)="timKiem()">TÌM KIẾM</button>
+              <button type="submit" class="btn btn-outline-primary" (click)="clear()">Clear</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <p class="fs-2 fw-bolder text-center" style="color: #ff5050">DANH SÁCH LÔ HÀNG</p>
+      <table class="table">
+        <thead>
+        <tr style="color: #ff5050 ; font-size: 20px">
+          <th scope="col">Mã Lô Hàng</th>
+          <th scope="col">Tên Sản Phẩm</th>
+          <th scope="col">Giá Tiền</th>
+          <th scope="col">Đơn Vị</th>
+          <th scope="col">Số Lượng</th>
+          <th scope="col">Ngày Nhập Hàng</th>
+          <th scope="col">Ngày Sản Xuất</th>
+          <th scope="col">Ngày Hết Hạn</th>
+          <th scope="col">Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let lh of loHangList | paginate: { itemsPerPage: 4, currentPage: p}">
+          <th>{{lh.maLoHang}}</th>
+          <th>{{lh.sanPham.tenSanPham}}</th>
+          <th>{{lh.sanPham.giaTien}}</th>
+          <th>{{lh.sanPham.donVi}}</th>
+          <th>{{lh.soLuong}}</th>
+          <th>{{lh.ngayNhapHang}}</th>
+          <th>{{lh.ngaySanXuat}}</th>
+          <th>{{lh.ngayHetHan}}</th>
+
+          <th>
+            <button type="button" class="btn btn-danger" (click)="openDialog(lh.id)">
+                Xóa
+            </button>
+          </th>
+        </tr>
+        </tbody>
+
+      </table>
+      <pagination-controls (pageChange)="p = $event" style="text-align: center"></pagination-controls>
+    </div>
+
+  </div>
+</div>

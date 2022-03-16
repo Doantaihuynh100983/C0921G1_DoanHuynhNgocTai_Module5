@@ -1,0 +1,140 @@
+{
+  "loHang": [
+    {
+      "id": 1,
+      "maLoHang": "LH-0001",
+      "soLuong": 5,
+      "ngayNhapHang": "2022-11-09",
+      "ngaySanXuat": "2022-09-09",
+      "ngayHetHan": "2022-11-09",
+      "sanPham": {
+        "id": 2,
+        "tenSanPham": "Keo",
+        "xuatXu": "Viet Nam",
+        "giaTien": 99999,
+        "donVi": 3
+      }
+    },
+    {
+      "id": 3,
+      "maLoHang": "LH-005",
+      "soLuong": "12",
+      "ngayNhapHang": "2022-03-15",
+      "ngaySanXuat": "2022-03-08",
+      "ngayHetHan": "2022-03-08",
+      "sanPham": {
+        "id": 1,
+        "tenSanPham": "Banh",
+        "xuatXu": "Viet Nam",
+        "giaTien": 99999,
+        "donVi": 3
+      }
+    },
+    {
+      "id": 7,
+      "maLoHang": "LH-005",
+      "soLuong": "12",
+      "ngayNhapHang": "2022-03-15",
+      "ngaySanXuat": "2022-03-08",
+      "ngayHetHan": "2022-03-08",
+      "sanPham": {
+        "id": 1,
+        "tenSanPham": "Banh",
+        "xuatXu": "Viet Nam",
+        "giaTien": 99999,
+        "donVi": 3
+      }
+    },
+    {
+      "id": 8,
+      "maLoHang": "LH-005",
+      "soLuong": "12",
+      "ngayNhapHang": "2022-03-15",
+      "ngaySanXuat": "2022-03-08",
+      "ngayHetHan": "2022-03-08",
+      "sanPham": {
+        "id": 1,
+        "tenSanPham": "Banh",
+        "xuatXu": "Viet Nam",
+        "giaTien": 99999,
+        "donVi": 3
+      }
+    },
+    {
+      "id": 9,
+      "maLoHang": "LH-005",
+      "soLuong": "12",
+      "ngayNhapHang": "2022-03-15",
+      "ngaySanXuat": "2022-03-08",
+      "ngayHetHan": "2022-03-08",
+      "sanPham": {
+        "id": 1,
+        "tenSanPham": "Banh",
+        "xuatXu": "Viet Nam",
+        "giaTien": 99999,
+        "donVi": 3
+      }
+    },
+    {
+      "id": 5,
+      "maLoHang": "LH-0009",
+      "soLuong": "12",
+      "ngayNhapHang": "2022-03-21",
+      "ngaySanXuat": "2022-03-10",
+      "ngayHetHan": "2022-03-17",
+      "sanPham": {
+        "id": 1,
+        "tenSanPham": "Banh",
+        "xuatXu": "Viet Nam",
+        "giaTien": 99999,
+        "donVi": 3
+      }
+    },
+    {
+      "id": 10,
+      "maLoHang": "LH-0019",
+      "soLuong": "12",
+      "ngayNhapHang": "2022-03-15",
+      "ngaySanXuat": "2022-03-17",
+      "ngayHetHan": "2022-03-17",
+      "sanPham": {
+        "id": 2,
+        "tenSanPham": "keo",
+        "xuatXu": "Viet Nam",
+        "giaTien": 99999,
+        "donVi": 3
+      }
+    },
+    {
+      "id": 11,
+      "maLoHang": "LH-0123",
+      "soLuong": "12",
+      "ngayNhapHang": "2022-03-10",
+      "ngaySanXuat": "2022-03-10",
+      "ngayHetHan": "2022-03-17",
+      "sanPham": {
+        "id": 1,
+        "tenSanPham": "Banh",
+        "xuatXu": "Viet Nam",
+        "giaTien": 99999,
+        "donVi": 3
+      }
+    }
+  ],
+  "sanPham": [
+    {
+      "id": 1,
+      "tenSanPham": "Banh",
+      "xuatXu": "Viet Nam",
+      "giaTien": 99999,
+      "donVi": 3
+    },
+    {
+      "id": 2,
+      "tenSanPham": "keo",
+      "xuatXu": "Viet Nam",
+      "giaTien": 99999,
+      "donVi": 3
+    }
+  ]
+}

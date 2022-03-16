@@ -23,12 +23,35 @@
                                      class="form-control"
                                      placeholder="Please enter your Name *"
                                      required="required" formControlName="name">
+                              <div *ngIf="employeeForm.controls.name.invalid && flagValid">
+                                <div *ngIf="employeeForm.controls.name.errors">
+                                  <div *ngIf="employeeForm.controls.name.errors.required">
+                                    <p style="color: red">Không Được Để Trống !!!</p>
+                                  </div>
+                                  <div *ngIf="employeeForm.controls.name.errors.pattern">
+                                    <p style="color: red">Không Đúng Định Dạng !!!</p>
+                                  </div>
+                                </div>
+
+                              </div>
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group"><label for="employeeBirthday">Birthday
                               *</label> <input formControlName="birthDay" id="employeeBirthday" type="date"
                                                class="form-control" required="required">
+
+                              <div *ngIf="employeeForm.controls.birthDay.invalid && flagValid">
+                                <div *ngIf="employeeForm.controls.birthDay.errors">
+                                  <div *ngIf="employeeForm.controls.birthDay.errors.required">
+                                    <p style="color: red">Bắt Buộc Chọn !!!</p>
+                                  </div>
+                                  <div *ngIf="employeeForm.controls.birthDay.errors.checkAge">
+                                    <p style="color: red">Chưa Đủ 18 Mà Đi Làm À !!!</p>
+                                  </div>
+                                </div>
+
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -39,6 +62,17 @@
                               <input id="employeeIdCard" type="text" class="form-control"
                                      placeholder="Please enter your Id Card *"
                                      required="required" formControlName="idCard">
+                              <div *ngIf="employeeForm.controls.idCard.invalid && flagValid">
+                                <div *ngIf="employeeForm.controls.idCard.errors">
+                                  <div *ngIf="employeeForm.controls.idCard.errors.required">
+                                    <p style="color: red">Bắt Buộc Nhập !!!</p>
+                                  </div>
+                                  <div *ngIf="employeeForm.controls.idCard.errors.pattern">
+                                    <p style="color: red">Không Đúng Định Dạng !!!</p>
+                                  </div>
+                                </div>
+
+                              </div>
                             </div>
                           </div>
                           <div class="col-md-6">
@@ -48,6 +82,17 @@
                                      class="form-control"
                                      placeholder="Please enter your Salary *"
                                      required="required" formControlName="salary">
+                              <div *ngIf="employeeForm.controls.salary.invalid && flagValid">
+                                <div *ngIf="employeeForm.controls.salary.errors">
+                                  <div *ngIf="employeeForm.controls.salary.errors.required">
+                                    <p style="color: red">Không Có Bỏ Trống !!!</p>
+                                  </div>
+                                  <div *ngIf="employeeForm.controls.salary.errors.salaryCode">
+                                    <p style="color: red">Trả Lương Hơn 500.000 Mày !!!</p>
+                                  </div>
+                                </div>
+
+                              </div>
                             </div>
                           </div>
 
@@ -60,6 +105,17 @@
                                                class="form-control"
                                                placeholder="Please enter your Phone *"
                                                required="required" formControlName="phone">
+                              <div *ngIf="employeeForm.controls.phone.invalid && flagValid">
+                                <div *ngIf="employeeForm.controls.phone.errors">
+                                  <div *ngIf="employeeForm.controls.phone.errors.required">
+                                    <p style="color: red">Không Được Để Trống !!!</p>
+                                  </div>
+                                  <div *ngIf="employeeForm.controls.phone.errors.pattern">
+                                    <p style="color: red">Không Đúng Định Dạng !!!</p>
+                                  </div>
+                                </div>
+
+                              </div>
                             </div>
                           </div>
                           <div class="col-md-6">
@@ -69,6 +125,17 @@
                                      class="form-control"
                                      placeholder="Please enter your Email *"
                                      required="required" formControlName="email">
+                              <div *ngIf="employeeForm.controls.email.invalid && flagValid">
+                                <div *ngIf="employeeForm.controls.email.errors">
+                                  <div *ngIf="employeeForm.controls.email.errors.required">
+                                    <p style="color: red">Không Được Để Trống !!!</p>
+                                  </div>
+                                  <div *ngIf="employeeForm.controls.email.errors.email">
+                                    <p style="color: red">Không Đúng Định Dạng !!!</p>
+                                  </div>
+                                </div>
+
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -79,6 +146,14 @@
                                                class="form-control"
                                                placeholder="Please enter your Adress *"
                                                required="required" formControlName="address">
+                              <div *ngIf="employeeForm.controls.address.invalid && flagValid">
+                                <div *ngIf="employeeForm.controls.address.errors">
+                                  <div *ngIf="employeeForm.controls.address.errors.required">
+                                    <p style="color: red">Không Được Để Trống !!!</p>
+                                  </div>
+                                </div>
+
+                              </div>
                             </div>
                           </div>
                           <div class="col-md-6">
@@ -91,6 +166,14 @@
                                 >{{ps.name}}</option>
 
                               </select>
+                              <div *ngIf="employeeForm.controls.position.invalid && flagValid">
+                                <div *ngIf="employeeForm.controls.position.errors">
+                                  <div *ngIf="employeeForm.controls.position.errors.required">
+                                    <p style="color: red">Bắt Buộc Chọn !!!</p>
+                                  </div>
+                                </div>
+
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -104,7 +187,14 @@
                                         [selected]="ed.id == employeeForm.controls.education.value.id"
                                 >{{ed.name}}</option>
                               </select>
+                              <div *ngIf="employeeForm.controls.education.invalid && flagValid">
+                                <div *ngIf="employeeForm.controls.education.errors">
+                                  <div *ngIf="employeeForm.controls.education.errors.required">
+                                    <p style="color: red">Bắt Buộc Chọn !!!</p>
+                                  </div>
+                                </div>
 
+                              </div>
 
                             </div>
                           </div>
@@ -118,6 +208,15 @@
                                         [selected]="dv.id == employeeForm.controls.division.value.id"
                                 >{{dv.name}}</option>
                               </select>
+
+                              <div *ngIf="employeeForm.controls.division.invalid && flagValid">
+                                <div *ngIf="employeeForm.controls.division.errors">
+                                  <div *ngIf="employeeForm.controls.division.errors.required">
+                                    <p style="color: red">Bắt Buộc Chọn !!!</p>
+                                  </div>
+                                </div>
+
+                              </div>
 
                             </div>
                           </div>

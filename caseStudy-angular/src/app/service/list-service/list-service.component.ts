@@ -69,6 +69,7 @@ export class ListServiceComponent implements OnInit {
   search(){
     this.serviceService.searchAllService(this.name,this.rentType,this.serviceType).subscribe(value => {
       this.serviceList = value;
+      this.p = 0;
     })
   }
 }

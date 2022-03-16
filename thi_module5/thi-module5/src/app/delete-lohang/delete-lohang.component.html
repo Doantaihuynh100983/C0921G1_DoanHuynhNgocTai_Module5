@@ -1,0 +1,41 @@
+<h1  style="text-align: center">Are you sure?</h1>
+
+<div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col" style="text-align: center">{{this.loHang.id}}</th>
+    </tr>
+    <tr>
+      <th scope="col">Mã Lô Hàng</th>
+      <th scope="col" style="text-align: center">{{loHang.maLoHang}}</th>
+    </tr>
+    <tr>
+      <th scope="col">Số Lượng</th>
+      <th scope="col" style="text-align: center">{{loHang.soLuong}}</th>
+    </tr>
+    <tr>
+
+    <tr>
+      <th scope="col">Ngày Nhập Hàng</th>
+      <th scope="col" style="text-align: center">{{loHang.ngayNhapHang}}</th>
+    </tr>
+    <tr>
+      <th scope="col">Ngày Sản Xuất</th>
+      <th scope="col" style="text-align: center">{{loHang.ngaySanXuat}}</th>
+    </tr>
+    <tr>
+      <th scope="col">Ngày Hết Hạn</th>
+      <th scope="col" style="text-align: center">{{loHang.ngayHetHan}}</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+</div>
+<div class="modal-footer justify-content-center">
+  <button type="button" class="btn btn-secondary"  (click)="onNoClick()">Back</button>
+  <button type="button" class="btn btn-danger" (click)="deleteLohang()">Delete</button>
+</div>

@@ -58,6 +58,9 @@ export class ListEmployeeComponent implements OnInit {
 
   }
 
+
+
+
   getSearch() {
     this.dialog.afterAllClosed.subscribe(() => {
       this.search();
@@ -77,8 +80,10 @@ export class ListEmployeeComponent implements OnInit {
 
 
   search() {
+
     this.employeeService.searchEmployee(this.name, this.address, this.position, this.education, this.division).subscribe(value => {
       this.employeeList = value;
+      this.p = 0;
     });
   }
 }
