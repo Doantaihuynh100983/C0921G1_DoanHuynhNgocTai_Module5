@@ -12,7 +12,10 @@ import {EmployeeModule} from './employee/employee.module';
 import {ContractModule} from './contract/contract.module';
 import {ServiceModule} from './service/service.module';
 import {HttpClientModule} from '@angular/common/http';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { AddHomeComponent } from './add-home/add-home.component';
+import {environment} from '../environments/environment';
+import {ReactiveFormsModule} from '@angular/forms';
+import {AngularFireStorageModule} from '@angular/fire/storage';
 
 
 
@@ -22,7 +25,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     FooterComponent,
     HeaderComponent,
     BodyComponent,
-    HomeComponent
+    HomeComponent,
+    AddHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -30,11 +34,11 @@ import {NgxPaginationModule} from 'ngx-pagination';
     EmployeeModule,
     ContractModule,
     ServiceModule,
-    AppRoutingModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
     BrowserAnimationsModule,
     HttpClientModule,
-    NgxPaginationModule
-
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -57,9 +57,9 @@ deleteEmployee( employee : Employee): Observable<any>{
 }
 
 
-  searchEmployee(name: any ,address: any ,position: any ,education: any, division: any)  : Observable<Employee[]>{
+  searchEmployee(name: any ,address: any ,position: any ,education: any, division: any, index: any)  : Observable<Employee[]>{
       return this.http.get<Employee[]>(API_URL + "search?name="+name + "&address=" + address +
-                 "&position=" + position +"&education=" + education + "&division=" + division )
+                 "&position=" + position + "&education=" + education + "&division=" + division +  "&last_item="+index)
   }
 
 }

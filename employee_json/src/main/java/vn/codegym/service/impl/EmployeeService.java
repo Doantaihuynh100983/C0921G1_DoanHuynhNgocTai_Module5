@@ -1,6 +1,8 @@
 package vn.codegym.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import vn.codegym.model.Employee;
 import vn.codegym.repository.employee.IEmployeeRepository;
@@ -31,12 +33,18 @@ public class EmployeeService implements IEmployeeService {
 
     @Override
     public void deleteEmployee(int id) {
-       iEmployeeRepository.deleteById(id);
+        iEmployeeRepository.deleteById(id);
     }
 
     @Override
-    public List<Employee> searchAllEmployee(String name, String address, String position, String education, String division) {
-        return iEmployeeRepository.searchAllEmployee(name,address,position,education,division);
+    public Page<Employee> searchAllEmployee(String name,
+                                            String address,
+                                            String position,
+                                            String education,
+                                            String division,
+                                            Pageable pageable) {
+
+        return iEmployeeRepository.searchAllEmployee(name, address, position, education, division, pageable);
     }
 
 

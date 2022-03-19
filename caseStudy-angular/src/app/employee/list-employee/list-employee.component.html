@@ -73,7 +73,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let emp of employeeList | paginate: { itemsPerPage: 7, currentPage: p}" style="text-align: center">
+        <tr *ngFor="let emp of employeeList " style="text-align: center">
           <th>{{emp.id}}</th>
           <th>{{emp.name}}</th>
           <th>{{emp.email}}</th>
@@ -99,7 +99,27 @@
         </tr>
         </tbody>
       </table>
-      <pagination-controls (pageChange)="p = $event" style="text-align: center"></pagination-controls>
+
+
+
+
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+          <li class="page-item">
+            <button class="page-link"  (click)="backPage()">Previous</button>
+          </li>
+          <li class="page-item"><a class="page-link">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item">
+            <button class="page-link" (click)="nextPage()">Next</button>
+          </li>
+        </ul>
+      </nav>
+
+
+
+
+
     </div>
   </div>
 </div>

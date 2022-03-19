@@ -14,7 +14,9 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.homeList = this.homeService.getAllHotel();
+    this.homeService.getAllHotel().subscribe(value => {
+      this.homeList = value;
+    })
   }
 
 }

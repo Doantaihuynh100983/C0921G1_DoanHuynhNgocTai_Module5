@@ -51,7 +51,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let sv of serviceList | paginate: { itemsPerPage: 7, currentPage: p}">
+        <tr *ngFor="let sv of serviceList">
           <th>{{sv.id}}</th>
           <th>{{sv.name}}</th>
           <th>{{sv.area}}</th>
@@ -80,7 +80,6 @@
         </tbody>
 
       </table>
-      <pagination-controls (pageChange)="p = $event" style="text-align: center"></pagination-controls>
     </div>
 
   </div>

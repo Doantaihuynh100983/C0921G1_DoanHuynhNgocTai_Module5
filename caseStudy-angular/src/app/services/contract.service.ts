@@ -16,12 +16,10 @@ export class ContractService {
 
 
   customerList: Customer[] = this.customerService.getAllCustomer();
-  homeList : Home[] = this.homeServiceService.getAllHotel();
   contractList: Contract[] = [
     {
       maHopDong : 'P0001',
       Customer   :  this.customerList[1],
-      Home : this.homeList[1],
       ngayLamHopDong: '2022-21-2',
       ngayKetThucHopDong: '2022-21-3',
       tienDatCoc:  12
@@ -30,7 +28,6 @@ export class ContractService {
     {
       maHopDong : 'P0002',
       Customer   :  this.customerList[2],
-      Home : this.homeList[2],
       ngayLamHopDong: '2022-21-2',
       ngayKetThucHopDong: '2022-21-3',
       tienDatCoc:  345
@@ -39,7 +36,6 @@ export class ContractService {
     {
       maHopDong : 'P0003',
       Customer   :  this.customerList[3],
-      Home : this.homeList[3],
       ngayLamHopDong: '2022-21-2',
       ngayKetThucHopDong: '2022-21-3',
       tienDatCoc:  12
@@ -48,7 +44,6 @@ export class ContractService {
     {
       maHopDong : 'P0004',
       Customer   :  this.customerList[5],
-      Home : this.homeList[5],
       ngayLamHopDong: '2022-21-2',
       ngayKetThucHopDong: '2022-21-3',
       tienDatCoc:  12

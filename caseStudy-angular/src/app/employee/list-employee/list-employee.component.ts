@@ -14,11 +14,10 @@ import {Division} from '../../models/Division';
   styleUrls: ['./list-employee.component.css']
 })
 export class ListEmployeeComponent implements OnInit {
-  employeeList = new Array<Employee>();
+  employeeList :Employee[] =[] ;
   positionList: position[] = [];
   educationList: Education[] = [];
   divisionList: Division[] = [];
-  p: number = 1;
 
 
   name: string = '';
@@ -26,6 +25,7 @@ export class ListEmployeeComponent implements OnInit {
   division: string = '';
   position: string = '';
   education: string = '';
+  paginNation: number ;
 
   constructor(private employeeService: EmployeeService,
               private  dialog: MatDialog) {
@@ -80,10 +80,27 @@ export class ListEmployeeComponent implements OnInit {
 
 
   search() {
+    this.paginNation = 0;
+    this.employeeService.searchEmployee(this.name, this.address, this.position, this.education, this.division, this.paginNation).subscribe(value => {
+      //truy cập đến thuộc tính content dưới data để lấy ra cái dữ liệu trong pageAble
+      this.employeeList = value['content'] ;
+      console.log(this.employeeList);
+    });
+  }
 
-    this.employeeService.searchEmployee(this.name, this.address, this.position, this.education, this.division).subscribe(value => {
-      this.employeeList = value;
-      this.p = 0;
+  nextPage() {
+        this.paginNation = this.paginNation + 1  ;
+    this.employeeService.searchEmployee(this.name, this.address, this.position, this.education, this.division, this.paginNation).subscribe(value => {
+      //truy cập đến thuộc tính content dưới data để lấy ra cái dữ liệu trong pageAble
+      this.employeeList = value['content'] ;
+    });
+  }
+
+  backPage() {
+    this.paginNation = this.paginNation - 1  ;
+    this.employeeService.searchEmployee(this.name, this.address, this.position, this.education, this.division, this.paginNation).subscribe(value => {
+      //truy cập đến thuộc tính content dưới data để lấy ra cái dữ liệu trong pageAble
+      this.employeeList = value['content'] ;
     });
   }
 }

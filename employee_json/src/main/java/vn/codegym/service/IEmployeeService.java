@@ -1,6 +1,7 @@
 package vn.codegym.service;
 
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.query.Param;
 import vn.codegym.model.Employee;
 
@@ -12,5 +13,5 @@ public interface IEmployeeService {
     Employee addNew(Employee employee);
    Optional<Employee>  findById(int id);
     void deleteEmployee(int id);
-    List<Employee> searchAllEmployee( String name, String address, String position, String education, String division);
+    Page<Employee> searchAllEmployee(String name, String address, String position, String education, String division, Pageable pageable);
 }

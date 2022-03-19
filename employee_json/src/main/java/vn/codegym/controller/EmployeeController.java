@@ -1,6 +1,10 @@
 package vn.codegym.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,7 +35,9 @@ public class EmployeeController {
     private IDivisionService iDivisionService;
 
 //    @GetMapping("/list")
-//    public ResponseEntity<List<Employee>> getAllEmployee() {
+//    public ResponseEntity<List<Employee>> getAllEmployee(
+//    @RequestParam(value = "last_item") int last_item) {
+//Pageable  pageable = PageRequest.of(last_item, 5);
 //        List<Employee> employeeList = iEmployeeService.getAllEmployee();
 //        if (!employeeList.isEmpty()) {
 //            return new ResponseEntity<>(employeeList, HttpStatus.OK);
@@ -73,6 +79,7 @@ public class EmployeeController {
     }
         
 
+
     @PostMapping("/add")
     public ResponseEntity<Employee> addNew(@RequestBody Employee employee) {
         return new ResponseEntity<>(iEmployeeService.addNew(employee), HttpStatus.CREATED);
@@ -110,12 +117,15 @@ public class EmployeeController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<Employee>> searchEmployee( @RequestParam(defaultValue = "") String name,
-                                                          @RequestParam(defaultValue = "") String address,
-                                                          @RequestParam(defaultValue = "") String position,
-                                                          @RequestParam(defaultValue = "") String education,
-                                                          @RequestParam(defaultValue = "") String division){
-        List<Employee> employeeList = iEmployeeService.searchAllEmployee(name,address,position,education,division);
+    public ResponseEntity<Page<Employee>> searchEmployee(@RequestParam(defaultValue = "") String name,
+                                                         @RequestParam(defaultValue = "") String address,
+                                                         @RequestParam(defaultValue = "") String position,
+                                                         @RequestParam(defaultValue = "") String education,
+                                                         @RequestParam(defaultValue = "") String division,
+                                                         @RequestParam(value = "last_item") int last_item){
+        //dùng pageRequest truyền tham số cho page
+        Pageable  pageable = PageRequest.of(last_item, 5);
+        Page<Employee> employeeList = iEmployeeService.searchAllEmployee(name,address,position,education,division,pageable);
         if (employeeList.isEmpty()){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
